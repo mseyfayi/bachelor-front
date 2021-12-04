@@ -1,13 +1,13 @@
-import React from 'react';
 import Head from 'next/head';
+import { NextPage } from 'next';
 
-export default function {{pascalCase name}}Page() {
-  return (
-    <>
-      <Head>
-        <title>{{pascalCase name}}</title>
-      </Head>
-      <div />
-    </>
-  );
-}
+const {{pascalCase name}}Page: NextPage = () => (
+  <>
+    <Head>
+      <title>{{pascalCase name}}</title>
+    </Head>
+    <div />
+  </>
+);
+
+export default {{pascalCase name}}Page;

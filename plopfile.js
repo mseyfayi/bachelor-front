@@ -16,17 +16,17 @@ module.exports = function (plop) {
       },
       {
         type: 'add',
-        path: 'src/components/{{pascalCase name}}/index.js',
+        path: 'src/components/{{pascalCase name}}/index.tsx',
         templateFile: 'plop-templates/view/index.hbs',
       },
       {
         type: 'add',
-        path: 'src/components/{{pascalCase name}}/{{pascalCase name}}Container.js',
+        path: 'src/components/{{pascalCase name}}/{{pascalCase name}}Container.tsx',
         templateFile: 'plop-templates/view/container.hbs',
       },
       {
         type: 'add',
-        path: 'src/components/{{pascalCase name}}/{{pascalCase name}}Presentation.js',
+        path: 'src/components/{{pascalCase name}}/{{pascalCase name}}Presentation.tsx',
         templateFile: 'plop-templates/view/presentation.hbs',
       },
       {
@@ -50,22 +50,22 @@ module.exports = function (plop) {
       },
       {
         type: 'add',
-        path: 'src/states/{{dashCase name}}/index.js',
+        path: 'src/states/{{dashCase name}}/index.ts',
         templateFile: 'plop-templates/state/index.hbs',
       },
       {
         type: 'add',
-        path: 'src/states/{{dashCase name}}/reducer.js',
+        path: 'src/states/{{dashCase name}}/reducer.ts',
         templateFile: 'plop-templates/state/reducer.hbs',
       },
       {
         type: 'add',
-        path: 'src/states/{{dashCase name}}/actions.js',
+        path: 'src/states/{{dashCase name}}/actions.ts',
         templateFile: 'plop-templates/state/actions.hbs',
       },
       {
         type: 'add',
-        path: 'src/states/{{dashCase name}}/types.js',
+        path: 'src/states/{{dashCase name}}/types.ts',
         templateFile: 'plop-templates/state/types.hbs',
       },
     ],
@@ -85,12 +85,12 @@ module.exports = function (plop) {
       },
       {
         type: 'add',
-        path: 'src/common/components/{{pascalCase name}}/index.js',
+        path: 'src/common/components/{{pascalCase name}}/index.tsx',
         templateFile: 'plop-templates/component/index.hbs',
       },
       {
         type: 'add',
-        path: 'src/common/components/{{pascalCase name}}/{{pascalCase name}}.js',
+        path: 'src/common/components/{{pascalCase name}}/{{pascalCase name}}.tsx',
         templateFile: 'plop-templates/component/component.hbs',
       },
       {
@@ -114,7 +114,7 @@ module.exports = function (plop) {
       },
       {
         type: 'add',
-        path: 'src/pages/{{dashCase name}}/index.js',
+        path: 'src/pages/{{dashCase name}}/index.tsx',
         templateFile: 'plop-templates/page/index.hbs',
       },
     ],
