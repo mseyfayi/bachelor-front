@@ -1,15 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import style from './{{pascalCase name}}Presentation.module.scss';
+import classes from './{{pascalCase name}}Presentation.module.scss';
 
-function {{pascalCase name}}Presentation() {
-  return (
-    <div />
-  );
-}
+type Props = {};
 
-{{pascalCase name}}Presentation.propTypes = {};
-
-{{pascalCase name}}Presentation.defaultProps = {};
+const {{pascalCase name}}Presentation = ({}: Props) => <div className={classes.container} />;
 
 export default {{pascalCase name}}Presentation;
