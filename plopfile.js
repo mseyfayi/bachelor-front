@@ -32,6 +32,7 @@ module.exports = function (plop) {
       {
         type: 'add',
         path: 'src/components/{{pascalCase name}}/{{pascalCase name}}Presentation.module.scss',
+        templateFile: 'plop-templates/view/presentationStyle.hbs',
       },
     ],
   });
