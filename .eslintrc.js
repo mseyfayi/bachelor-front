@@ -1,10 +1,9 @@
-// ESLint configuration
-// http://eslint.org/docs/user-guide/configuring
 module.exports = {
   "plugins": ["@typescript-eslint"],
   "extends": [
     "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
   ],
   "rules": {
     "@typescript-eslint/no-empty-function": "off",
