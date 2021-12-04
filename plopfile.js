@@ -1,5 +1,6 @@
-module.exports = function(plop) {
-  plop.setActionType('mkdir', function(answers, config, plop) {});
+module.exports = function (plop) {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  plop.setActionType('mkdir', () => {});
   plop.setGenerator('view', {
     description: 'container & presentational components and style and index',
     prompts: [
