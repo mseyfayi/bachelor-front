@@ -1,7 +1,7 @@
 import HomePresentation from './HomePresentation';
 
-type Props = {};
+const list: Array<{ id: string }> = [];
 
-const HomeContainer = ({}: Props) => <HomePresentation />;
+const HomeContainer = () => <HomePresentation list={list} />;
 
 export default HomeContainer;
