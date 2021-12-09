@@ -33,6 +33,7 @@ export interface SimpleBlog {
 }
 
 export interface GitBlog extends SimpleBlog {
+  repoUrl: string;
   repoTitle: string;
   description: string;
   starsCount: number;
@@ -40,3 +41,7 @@ export interface GitBlog extends SimpleBlog {
 }
 
 export type Blog = GitBlog | SimpleBlog;
+
+export type IsGitBlog = (blog: Blog) => blog is GitBlog;
+
+export const isGitBlog: IsGitBlog = (blog: Blog) => (blog as GitBlog).repoUrl;
