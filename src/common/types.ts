@@ -42,6 +42,4 @@ export interface GitBlog extends SimpleBlog {
 
 export type Blog = GitBlog | SimpleBlog;
 
-export type IsGitBlog = (blog: Blog) => blog is GitBlog;
-
-export const isGitBlog: IsGitBlog = (blog: Blog) => (blog as GitBlog).repoUrl;
+export const isGitBlog = (blog: Blog): blog is GitBlog => (blog as GitBlog).repoUrl !== undefined;

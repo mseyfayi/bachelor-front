@@ -7,6 +7,7 @@ import BlogsPresentation from './BlogsPresentation';
 
 const BlogsContainer = () => {
   const [filters, setFilters] = useState<Array<Tag>>([]);
+  // todo should be infinite loop
   const { data: list, isLoading } = useIQuery<Array<Blog> | undefined>(
     ['timeline', filters],
     () => fetchApi<Array<Blog>>(getTimelineUrl(filters), getGetConfig()),
