@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'eslint-plugin-prettier'],
+  plugins: ['@typescript-eslint', 'eslint-plugin-prettier', 'react-hooks'],
   extends: ['plugin:@typescript-eslint/recommended', 'next', 'next/core-web-vitals', 'airbnb', 'eslint-config-prettier'],
   rules: {
     'react/react-in-jsx-scope': 'off',
