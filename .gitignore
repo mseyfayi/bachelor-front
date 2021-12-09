@@ -80,5 +80,7 @@ fabric.properties
 
 .idea/**/*
 
+yarn.lock
+
 node_modules/**/*
 # End of https://www.toptal.com/developers/gitignore/api/nextjs,webstorm,macos,linux
