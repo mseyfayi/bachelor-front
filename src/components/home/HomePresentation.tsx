@@ -1,12 +1,17 @@
+import { Blog, Tag } from 'common/types';
+import { Dispatch, SetStateAction } from 'react';
 import classes from './HomePresentation.module.scss';
 
-type Props = {
-  list: Array<{ id: string }>;
-};
+interface Props {
+  filters: Array<Tag>;
+  setFilters: Dispatch<SetStateAction<Array<Tag>>>;
+  list: Array<Blog> | undefined;
+  isLoading: boolean;
+}
 
-const HomePresentation = ({ list }: Props) => (
+const HomePresentation = ({ filters, setFilters, list, isLoading }: Props) => (
   <div className={classes.container}>
-    {list.map((item) => (
+    {list?.map((item) => (
       <div key={item.id}>{item.id}</div>
     ))}
   </div>

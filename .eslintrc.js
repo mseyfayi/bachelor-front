@@ -48,7 +48,7 @@ module.exports = {
     // https://github.com/kriasoft/react-starter-kit/pull/961
     'react/prefer-stateless-function': 'off',
     'max-len': ['error', { code: 130, tabWidth: 2 }],
-    'no-use-before-define': ['error', 'nofunc'],
+    'no-use-before-define': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
     'react/button-has-type': 'off',
     'react/jsx-no-target-blank': 'off',

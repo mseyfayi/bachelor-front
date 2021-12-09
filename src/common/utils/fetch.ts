@@ -45,11 +45,7 @@ export const getGetConfig: GetConfig = createGetConfig(fetchMethods.GET);
 
 export const getDeleteConfig: GetConfig = createGetConfig(fetchMethods.DELETE);
 
-export const fetchApi = async (
-  url: string,
-  config: Config,
-  isAuthenticated = true,
-): Promise<Record<string | number, unknown> | Array<unknown> | null> => {
+export const fetchApi = async <TData>(url: string, config: Config, isAuthenticated = true): Promise<TData | undefined> => {
   let flowError;
   try {
     const res = await fetch(url, config);
@@ -74,5 +70,5 @@ export const fetchApi = async (
   if (flowError) {
     throw flowError;
   }
-  return null;
+  return undefined;
 };
