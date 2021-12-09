@@ -22,6 +22,8 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
 
     'no-unused-vars': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+
     // ESLint plugin for prettier formatting
     // https://github.com/prettier/eslint-plugin-prettier
     'prettier/prettier': [

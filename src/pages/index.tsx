@@ -14,10 +14,11 @@ export default Home;
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { req } = context;
   const { cookies } = req;
-  if (cookies && cookies.loginInfo) {
+  // todo
+  if (true || (cookies && cookies.loginInfo)) {
     return {
       redirect: {
-        destination: '/Blogs',
+        destination: '/home',
         permanent: false,
       },
     };

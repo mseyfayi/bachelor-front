@@ -3,14 +3,15 @@ export type Tag = string;
 
 export interface User {
   id: string;
-  githubId: string;
-  beheshtiId: string;
-  firstName: string;
-  lastName: string;
-  avatar: string;
+  githubId?: string;
+  beheshtiId?: string;
+  firstName?: string;
+  lastName?: string;
+  avatar?: string;
 }
 
 interface Comment {
+  id: string;
   user: User;
   context: string;
 }
@@ -29,7 +30,7 @@ export interface SimpleBlog {
   readme: string;
   likesCount: number;
   comments: Array<Comment>;
-  files: Array<BlogFile>;
+  files?: Array<BlogFile>;
 }
 
 export interface GitBlog extends SimpleBlog {

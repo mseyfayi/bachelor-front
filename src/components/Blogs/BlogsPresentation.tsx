@@ -13,9 +13,11 @@ interface Props {
 
 const BlogsPresentation = ({ filters, setFilters, list, isLoading }: Props) => (
   <div className={classes.container}>
-    {list?.map((blog) =>
-      isGitBlog(blog) ? <GitBlogItem key={blog.id} {...blog} /> : <SimpleBlogItem key={blog.id} {...blog} />,
-    )}
+    <Chronology type="vertical">
+      {list?.map((blog) =>
+        isGitBlog(blog) ? <GitBlogItem key={blog.id} {...blog} /> : <SimpleBlogItem key={blog.id} {...blog} />,
+      )}
+    </Chronology>
   </div>
 );
 
