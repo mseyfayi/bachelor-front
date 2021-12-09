@@ -17,7 +17,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   if (cookies && cookies.loginInfo) {
     return {
       redirect: {
-        destination: '/home',
+        destination: '/Blogs',
         permanent: false,
       },
     };

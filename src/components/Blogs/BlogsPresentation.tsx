@@ -1,6 +1,6 @@
 import { Blog, Tag } from 'common/types';
 import { Dispatch, SetStateAction } from 'react';
-import classes from './HomePresentation.module.scss';
+import classes from './BlogsPresentation.module.scss';
 
 interface Props {
   filters: Array<Tag>;
@@ -9,7 +9,7 @@ interface Props {
   isLoading: boolean;
 }
 
-const HomePresentation = ({ filters, setFilters, list, isLoading }: Props) => (
+const BlogsPresentation = ({ filters, setFilters, list, isLoading }: Props) => (
   <div className={classes.container}>
     {list?.map((item) => (
       <div key={item.id}>{item.id}</div>
@@ -17,4 +17,4 @@ const HomePresentation = ({ filters, setFilters, list, isLoading }: Props) => (
   </div>
 );
 
-export default HomePresentation;
+export default BlogsPresentation;

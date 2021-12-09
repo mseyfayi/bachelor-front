@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { NextPage } from 'next';
-import Home from 'components/home';
+import Home from 'components/Blogs';
 
 const HomePage: NextPage = () => (
   <>
