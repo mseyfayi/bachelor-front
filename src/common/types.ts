@@ -38,3 +38,5 @@ export interface GitBlog extends SimpleBlog {
   starsCount: number;
   forksCount: number;
 }
+
+export type Blog = GitBlog | SimpleBlog;
