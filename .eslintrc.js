@@ -21,15 +21,7 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/issues/458
     'import/no-extraneous-dependencies': 'off',
 
-    // Recommend not to leave any console.log in your code
-    // Use console.error, console.warn and console.info instead
-    // 'no-console': [
-    //   'error',
-    //   {
-    //     allow: ['warn', 'error', 'info'],
-    //   },
-    // ],
-
+    'no-unused-vars': 'off',
     // ESLint plugin for prettier formatting
     // https://github.com/prettier/eslint-plugin-prettier
     'prettier/prettier': [
