@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 import { SnackbarUtilsConfigurator } from 'common/utils';
 import { SnackbarProvider } from 'notistack';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import 'bootstrap/dist/css/bootstrap.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const client = new QueryClient({
