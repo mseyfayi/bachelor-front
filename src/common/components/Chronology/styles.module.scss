@@ -22,16 +22,16 @@ $marker_color: #536e7c;
 
   &.markerLeft:before {
     right: 5px;
-    border-top: $marker_size/2 solid transparent;
+    border-top: calc(#{$marker_size} / 2) solid transparent;
     border-right: $marker_size solid $marker_color;
-    border-bottom: $marker_size/2 solid transparent;
+    border-bottom: calc(#{$marker_size} / 2) solid transparent;
   }
 
   &.markerRight:before {
     left: 5px;
-    border-top: $marker_size/2 solid transparent;
+    border-top: calc(#{$marker_size} / 2) solid transparent;
     border-left: $marker_size solid $marker_color;
-    border-bottom: $marker_size/2 solid transparent;
+    border-bottom: calc(#{$marker_size} / 2) solid transparent;
   }
 }
 
