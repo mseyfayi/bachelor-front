@@ -6,9 +6,7 @@ import classes from './BlogItem.module.scss';
 type Props = Blog;
 
 const BlogItem = (blog: Props) => (
-  <div className={classes.container}>
-    {isGitBlog(blog) ? <GitBlogContent key={blog.id} {...blog} /> : <SimpleBlogContent key={blog.id} {...blog} />}
-  </div>
+  <div className={classes.container}>{isGitBlog(blog) ? <GitBlogContent {...blog} /> : <SimpleBlogContent {...blog} />}</div>
 );
 
 export default BlogItem;
