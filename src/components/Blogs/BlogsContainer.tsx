@@ -2,7 +2,7 @@ import { fetchApi, getGetConfig } from 'common/utils';
 import { getTimelineUrl } from 'common/path';
 import { useState } from 'react';
 import { useIQuery } from 'common/reactQuery';
-import { Blog, Tag, User } from 'common/types';
+import { Blog, Tag } from 'common/types';
 import BlogsPresentation from './BlogsPresentation';
 
 const BlogsContainer = () => {
