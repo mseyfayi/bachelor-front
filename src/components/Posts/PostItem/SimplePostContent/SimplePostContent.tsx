@@ -3,6 +3,10 @@ import classes from './SimplePostContent.module.scss';
 
 type Props = SimplePost;
 
-const SimplePostContent = (props: Props) => <div className={classes.container}>{props.readme}</div>;
+const SimplePostContent = (post: Props) => (
+  <div className={classes.container}>
+    <div className={classes.content}>{post.content}</div>
+  </div>
+);
 
 export default SimplePostContent;

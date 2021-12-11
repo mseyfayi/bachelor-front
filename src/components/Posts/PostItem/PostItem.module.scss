@@ -1,9 +1,14 @@
 @import "common/styles";
 
 .container {
-  @include card
-}
+  @include card;
 
-.username {
-  margin: 0 10px;
+  .username {
+    margin: 0 10px;
+  }
+
+  .footer {
+    margin: 10px 0;
+    padding: 0 40px;
+  }
 }

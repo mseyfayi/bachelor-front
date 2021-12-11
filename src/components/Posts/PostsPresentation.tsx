@@ -14,8 +14,8 @@ interface Props {
 const PostsPresentation = ({ filters, setFilters, list, isLoading }: Props) => (
   <div className={classes.container}>
     <Chronology
-      elements={list?.map((blog) => (
-        <PostItem key={blog.id} {...blog} />
+      elements={list?.map((post) => (
+        <PostItem key={post.id} {...post} />
       ))}
     />
   </div>

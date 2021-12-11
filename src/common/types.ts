@@ -28,10 +28,9 @@ interface PostFile {
 
 export interface SimplePost {
   id: string;
-  title: string;
   tags: Array<Tag>;
   author: Partial<User>;
-  readme: string;
+  content: string;
   likesCount: number;
   comments: Array<Comment>;
   files?: Array<PostFile>;
@@ -47,4 +46,4 @@ export interface GitPost extends SimplePost {
 
 export type Post = GitPost | SimplePost;
 
-export const isGitPost = (blog: Post): blog is GitPost => (blog as GitPost).repoUrl !== undefined;
+export const isGitPost = (post: Post): post is GitPost => (post as GitPost).repoUrl !== undefined;

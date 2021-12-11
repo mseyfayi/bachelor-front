@@ -1,4 +1,4 @@
-@mixin bordered($brd_width: 1px, $brd_color: #444) {
+@mixin bordered($brd_width: 1px, $brd_color: #ccc) {
   border: $brd_width $brd_color solid;
 }
 
@@ -7,7 +7,7 @@
 }
 
 @mixin shadowed {
-  box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
 }
 
 @mixin padded($pd_width: 10px) {
