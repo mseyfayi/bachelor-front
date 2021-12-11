@@ -26,7 +26,6 @@ const Chronology: React.FC<Props> = ({ elements, ...restProps }) => {
     const timelineWidth = timeline.current.offsetWidth;
     const containerWidth = container.current.offsetWidth;
     const timelineLeft = (containerWidth - timelineWidth) / containerWidth / 2;
-    console.log(timelineWidth);
     timeline.current.style.left = `${timelineLeft * 100}%`;
     timeline.current.style.top = '0';
     timeline.current.style.width = `${timelineWidth}px`;

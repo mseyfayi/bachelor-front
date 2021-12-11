@@ -6,7 +6,6 @@ import { Blog, Tag, User } from 'common/types';
 import BlogsPresentation from './BlogsPresentation';
 
 const BlogsContainer = () => {
-  console.log('here');
   const [filters, setFilters] = useState<Array<Tag>>([]);
   // todo should be infinite loop
   const { data: list, isLoading } = useIQuery<Array<Blog> | undefined>(
@@ -17,7 +16,11 @@ const BlogsContainer = () => {
             {
               id: 'id1',
               title: 'title1',
-              tags: ['tag1', 'tag2', 'tag3'],
+              tags: [
+                { id: 'tag1', name: 'tagsds', color: '#145231' },
+                { id: 'tag2', name: 'fghg', color: '#6445F3' },
+                { id: 'tag3', name: 'asdasd', color: '#234264' },
+              ],
               author: { id: 'user1.id', githubId: 'githubId1' },
               readme:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
@@ -27,7 +30,11 @@ const BlogsContainer = () => {
             {
               id: 'id2',
               title: 'title2',
-              tags: ['tag1', 'tag2', 'tag3'],
+              tags: [
+                { id: 'tag1', name: 'tagsds', color: '#145231' },
+                { id: 'tag2', name: 'fghg', color: '#6445F3' },
+                { id: 'tag3', name: 'asdasd', color: '#234264' },
+              ],
               author: { id: 'user3.id', githubId: 'githubId3' },
               readme:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
@@ -41,7 +48,11 @@ const BlogsContainer = () => {
             {
               id: 'id2',
               title: 'title2',
-              tags: ['tag1', 'tag2', 'tag3'],
+              tags: [
+                { id: 'tag1', name: 'tagsds', color: '#145231' },
+                { id: 'tag2', name: 'fghg', color: '#6445F3' },
+                { id: 'tag3', name: 'asdasd', color: '#234264' },
+              ],
               author: { id: 'user3.id', githubId: 'githubId3' },
               readme:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',

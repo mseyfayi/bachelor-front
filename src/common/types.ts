@@ -1,5 +1,9 @@
 // todo fix this
-export type Tag = string;
+export interface Tag {
+  id: string;
+  name: string;
+  color: string;
+}
 
 export interface User {
   id: string;
