@@ -1,12 +1,15 @@
+$marker_size: 12px;
+$marker_color: #536e7c;
+
 .event {
-    margin-bottom: 15px;
-    width: calc(50% - 30px);
+  margin-bottom: 15px;
+  width: calc(50% - 30px);
 }
 
 .marker {
-  width: 16px;
-  height: 16px;
-  background-color: #263238;
+  width: $marker_size;
+  height: $marker_size;
+  background-color: $marker_color;
   border-radius: 16px;
   margin: 0 10px 10px 0;
 
@@ -19,16 +22,16 @@
 
   &.markerLeft:before {
     right: 5px;
-    border-top: 8px solid transparent;
-    border-right: 16px solid #263238;
-    border-bottom: 8px solid transparent;
+    border-top: $marker_size/2 solid transparent;
+    border-right: $marker_size solid $marker_color;
+    border-bottom: $marker_size/2 solid transparent;
   }
 
   &.markerRight:before {
     left: 5px;
-    border-top: 8px solid transparent;
-    border-left: 16px solid #263238;
-    border-bottom: 8px solid transparent;
+    border-top: $marker_size/2 solid transparent;
+    border-left: $marker_size solid $marker_color;
+    border-bottom: $marker_size/2 solid transparent;
   }
 }
 

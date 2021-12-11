@@ -32,6 +32,7 @@ export interface SimplePost {
   author: Partial<User>;
   content: string;
   likesCount: number;
+  isLiked: boolean;
   comments: Array<Comment>;
   files?: Array<PostFile>;
 }
