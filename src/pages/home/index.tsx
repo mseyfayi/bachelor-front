@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import { NextPage } from 'next';
-import Home from 'components/home';
+import Posts from 'components/Posts';
 
 const HomePage: NextPage = () => (
   <>
     <Head>
       <title>Home</title>
     </Head>
-    <Home />
+    <Posts />
   </>
 );
 

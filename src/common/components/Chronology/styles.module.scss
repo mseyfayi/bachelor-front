@@ -1,0 +1,41 @@
+$marker_size: 12px;
+$marker_color: #536e7c;
+
+.event {
+  margin-bottom: 15px;
+  width: calc(50% - 30px);
+}
+
+.marker {
+  width: $marker_size;
+  height: $marker_size;
+  background-color: $marker_color;
+  border-radius: 16px;
+  margin: 0 10px 10px 0;
+
+  &.markerLeft:before,
+  &.markerRight:before {
+    content: "";
+    display: block;
+    position: absolute;
+  }
+
+  &.markerLeft:before {
+    right: 5px;
+    border-top: calc(#{$marker_size} / 2) solid transparent;
+    border-right: $marker_size solid $marker_color;
+    border-bottom: calc(#{$marker_size} / 2) solid transparent;
+  }
+
+  &.markerRight:before {
+    left: 5px;
+    border-top: calc(#{$marker_size} / 2) solid transparent;
+    border-left: $marker_size solid $marker_color;
+    border-bottom: calc(#{$marker_size} / 2) solid transparent;
+  }
+}
+
+.timeline {
+  width: 2px;
+  background: #aaa;
+}

@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'eslint-plugin-prettier'],
+  plugins: ['@typescript-eslint', 'eslint-plugin-prettier', 'react-hooks'],
   extends: ['plugin:@typescript-eslint/recommended', 'next', 'next/core-web-vitals', 'airbnb', 'eslint-config-prettier'],
   rules: {
     'react/react-in-jsx-scope': 'off',
@@ -21,14 +21,8 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/issues/458
     'import/no-extraneous-dependencies': 'off',
 
-    // Recommend not to leave any console.log in your code
-    // Use console.error, console.warn and console.info instead
-    // 'no-console': [
-    //   'error',
-    //   {
-    //     allow: ['warn', 'error', 'info'],
-    //   },
-    // ],
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
 
     // ESLint plugin for prettier formatting
     // https://github.com/prettier/eslint-plugin-prettier
@@ -56,7 +50,7 @@ module.exports = {
     // https://github.com/kriasoft/react-starter-kit/pull/961
     'react/prefer-stateless-function': 'off',
     'max-len': ['error', { code: 130, tabWidth: 2 }],
-    'no-use-before-define': ['error', 'nofunc'],
+    'no-use-before-define': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
     'react/button-has-type': 'off',
     'react/jsx-no-target-blank': 'off',

@@ -1,0 +1,10 @@
+@import "../../styles";
+
+.container {
+  @include rounded(30px);
+  padding: 0 10px;
+
+  height: 25px;
+  font-size: 13px;
+  margin:2px
+}

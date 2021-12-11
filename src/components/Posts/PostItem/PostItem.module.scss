@@ -1,0 +1,29 @@
+@import "common/styles";
+
+.container {
+  @include card;
+
+  .username {
+    margin: 0 10px;
+  }
+
+  .footer {
+    font-size: 10px;
+    margin: 10px 0;
+    padding: 0 40px;
+
+    > div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      > button > svg, svg {
+        font-size: 20px;
+      }
+
+      > svg {
+        margin: 8px;
+      }
+    }
+  }
+}
