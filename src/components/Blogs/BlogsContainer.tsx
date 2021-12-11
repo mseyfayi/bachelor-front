@@ -34,6 +34,12 @@ const BlogsContainer = () => {
                 { id: 'tag1', name: 'tagsds', color: '#145231' },
                 { id: 'tag2', name: 'fghg', color: '#6445F3' },
                 { id: 'tag3', name: 'asdasd', color: '#234264' },
+                { id: 'tag3', name: 'asdasd', color: '#234264' },
+                { id: 'tag3', name: 'asdasd', color: '#234264' },
+                { id: 'tag3', name: 'asdasd', color: '#234264' },
+                { id: 'tag3', name: 'asdasd', color: '#234264' },
+                { id: 'tag3', name: 'asdasd', color: '#234264' },
+                { id: 'tag3', name: 'asdasd', color: '#234264' },
               ],
               author: { id: 'user3.id', githubId: 'githubId3' },
               readme:

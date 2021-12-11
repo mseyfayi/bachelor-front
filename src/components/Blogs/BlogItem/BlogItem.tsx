@@ -10,9 +10,12 @@ type Props = Blog;
 
 const BlogItem = (blog: Props) => (
   <div className={classes.container}>
-    <div className="d-flex flex-row">
-      <Avatar src={blog.author.avatar} alt={getUsername(blog.author)} />
-      <div className="d-flex flex-row flex-wrap align-items-center">
+    <div className="d-flex flex-row align-items-center justify-content-between">
+      <div className="d-flex flex-row align-items-center">
+        <Avatar src={blog.author.avatar} alt={getUsername(blog.author)} sx={{ width: 54, height: 54 }} />
+        <p className={classes.username}>{getUsername(blog.author)}</p>
+      </div>
+      <div className="d-flex flex-row-reverse flex-wrap align-items-center">
         {blog.tags.map((tag) => (
           <TagItem key={tag.id} tag={tag} />
         ))}

@@ -3,7 +3,8 @@
 .container {
   @include rounded(30px);
   padding: 0 10px;
-  height: 30px;
 
-  margin-left: 4px;
+  height: 25px;
+  font-size: 13px;
+  margin:2px
 }
