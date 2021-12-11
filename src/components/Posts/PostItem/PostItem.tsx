@@ -1,14 +1,14 @@
-import { Blog, isGitBlog } from 'common/types';
+import { Post, isGitPost } from 'common/types';
 import { Avatar } from '@mui/material';
 import { getUsername } from 'common/utils';
 import TagItem from 'common/components/TagItem';
-import SimpleBlogContent from './SimpleBlogContent';
-import GitBlogContent from './GitBlogContent';
-import classes from './BlogItem.module.scss';
+import SimplePostContent from './SimplePostContent';
+import GitPostContent from './GitPostContent';
+import classes from './PostItem.module.scss';
 
-type Props = Blog;
+type Props = Post;
 
-const BlogItem = (blog: Props) => (
+const PostItem = (blog: Props) => (
   <div className={classes.container}>
     <div className="d-flex flex-row align-items-center justify-content-between">
       <div className="d-flex flex-row align-items-center">
@@ -21,8 +21,8 @@ const BlogItem = (blog: Props) => (
         ))}
       </div>
     </div>
-    <div>{isGitBlog(blog) ? <GitBlogContent {...blog} /> : <SimpleBlogContent {...blog} />}</div>
+    <div>{isGitPost(blog) ? <GitPostContent {...blog} /> : <SimplePostContent {...blog} />}</div>
   </div>
 );
 
-export default BlogItem;
+export default PostItem;

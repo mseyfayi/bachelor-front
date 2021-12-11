@@ -1,24 +1,24 @@
-import { Blog, Tag } from 'common/types';
+import { Post, Tag } from 'common/types';
 import { Dispatch, SetStateAction } from 'react';
 import { Chronology } from 'common/components';
-import BlogItem from './BlogItem';
-import classes from './BlogsPresentation.module.scss';
+import PostItem from './PostItem';
+import classes from './PostsPresentation.module.scss';
 
 interface Props {
   filters: Array<Tag>;
   setFilters: Dispatch<SetStateAction<Array<Tag>>>;
-  list: Array<Blog> | undefined;
+  list: Array<Post> | undefined;
   isLoading: boolean;
 }
 
-const BlogsPresentation = ({ filters, setFilters, list, isLoading }: Props) => (
+const PostsPresentation = ({ filters, setFilters, list, isLoading }: Props) => (
   <div className={classes.container}>
     <Chronology
       elements={list?.map((blog) => (
-        <BlogItem key={blog.id} {...blog} />
+        <PostItem key={blog.id} {...blog} />
       ))}
     />
   </div>
 );
 
-export default BlogsPresentation;
+export default PostsPresentation;

@@ -20,13 +20,13 @@ interface Comment {
   context: string;
 }
 
-interface BlogFile {
+interface PostFile {
   name: string;
   size: string;
   url: string;
 }
 
-export interface SimpleBlog {
+export interface SimplePost {
   id: string;
   title: string;
   tags: Array<Tag>;
@@ -34,10 +34,10 @@ export interface SimpleBlog {
   readme: string;
   likesCount: number;
   comments: Array<Comment>;
-  files?: Array<BlogFile>;
+  files?: Array<PostFile>;
 }
 
-export interface GitBlog extends SimpleBlog {
+export interface GitPost extends SimplePost {
   repoUrl: string;
   repoTitle: string;
   description: string;
@@ -45,6 +45,6 @@ export interface GitBlog extends SimpleBlog {
   forksCount: number;
 }
 
-export type Blog = GitBlog | SimpleBlog;
+export type Post = GitPost | SimplePost;
 
-export const isGitBlog = (blog: Blog): blog is GitBlog => (blog as GitBlog).repoUrl !== undefined;
+export const isGitPost = (blog: Post): blog is GitPost => (blog as GitPost).repoUrl !== undefined;

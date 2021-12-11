@@ -2,13 +2,13 @@ import { fetchApi, getGetConfig } from 'common/utils';
 import { getTimelineUrl } from 'common/path';
 import { useState } from 'react';
 import { useIQuery } from 'common/reactQuery';
-import { Blog, Tag } from 'common/types';
-import BlogsPresentation from './BlogsPresentation';
+import { Post, Tag } from 'common/types';
+import PostsPresentation from './PostsPresentation';
 
-const BlogsContainer = () => {
+const PostsContainer = () => {
   const [filters, setFilters] = useState<Array<Tag>>([]);
   // todo should be infinite loop
-  const { data: list, isLoading } = useIQuery<Array<Blog> | undefined>(
+  const { data: list, isLoading } = useIQuery<Array<Post> | undefined>(
     ['timeline', filters],
     () =>
       true
@@ -75,10 +75,10 @@ const BlogsContainer = () => {
               forksCount: 100,
             },
           ]
-        : fetchApi<Array<Blog>>(getTimelineUrl(filters), getGetConfig()),
+        : fetchApi<Array<Post>>(getTimelineUrl(filters), getGetConfig()),
     'خطایی در هنگام گرفتن لیست رخ داده است',
   );
-  return <BlogsPresentation {...{ filters, setFilters, list, isLoading }} />;
+  return <PostsPresentation {...{ filters, setFilters, list, isLoading }} />;
 };
 
-export default BlogsContainer;
+export default PostsContainer;
