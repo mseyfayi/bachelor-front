@@ -1,6 +1,6 @@
-import { Post, isGitPost } from 'common/types';
+import { Post, isGitPost, GitPost } from 'common/types';
 import { Avatar } from '@mui/material';
-import { getUsername } from 'common/utils';
+import { classnames, getUsername } from 'common/utils';
 import TagItem from 'common/components/TagItem';
 import SimplePostContent from './SimplePostContent';
 import GitPostContent from './GitPostContent';
@@ -8,20 +8,25 @@ import classes from './PostItem.module.scss';
 
 type Props = Post;
 
-const PostItem = (blog: Props) => (
+const PostItem = (post: Props) => (
   <div className={classes.container}>
     <div className="d-flex flex-row align-items-center justify-content-between">
       <div className="d-flex flex-row align-items-center">
-        <Avatar src={blog.author.avatar} alt={getUsername(blog.author)} sx={{ width: 54, height: 54 }} />
-        <p className={classes.username}>{getUsername(blog.author)}</p>
+        <Avatar src={post.author.avatar} alt={getUsername(post.author)} sx={{ width: 54, height: 54 }} />
+        <p className={classes.username}>{getUsername(post.author)}</p>
       </div>
       <div className="d-flex flex-row-reverse flex-wrap align-items-center">
-        {blog.tags.map((tag) => (
+        {post.tags.map((tag) => (
           <TagItem key={tag.id} tag={tag} />
         ))}
       </div>
     </div>
-    <div>{isGitPost(blog) ? <GitPostContent {...blog} /> : <SimplePostContent {...blog} />}</div>
+    <div>{isGitPost(post) ? <GitPostContent {...post} /> : <SimplePostContent {...post} />}</div>
+    <div className={classnames('d-flex flex-row justify-content-between', classes.footer)}>
+      <p>{post.likesCount}</p>
+      <p>{(post as GitPost).starsCount}</p>
+      <p> {post.comments.length}</p>
+    </div>
   </div>
 );
 
