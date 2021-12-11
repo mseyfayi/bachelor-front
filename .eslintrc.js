@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'eslint-plugin-prettier'],
+  plugins: ['@typescript-eslint', 'eslint-plugin-prettier', 'react-hooks'],
   extends: ['plugin:@typescript-eslint/recommended', 'next', 'next/core-web-vitals', 'airbnb', 'eslint-config-prettier'],
   rules: {
     'react/react-in-jsx-scope': 'off',
@@ -22,6 +22,8 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
 
     'no-unused-vars': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+
     // ESLint plugin for prettier formatting
     // https://github.com/prettier/eslint-plugin-prettier
     'prettier/prettier': [

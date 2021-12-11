@@ -1,0 +1,22 @@
+@mixin bordered($brd_width: 1px, $brd_color: #ccc) {
+  border: $brd_width $brd_color solid;
+}
+
+@mixin rounded($rds_width: 5px) {
+  border-radius: $rds_width;
+}
+
+@mixin shadowed {
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+}
+
+@mixin padded($pd_width: 10px) {
+  padding: $pd_width
+}
+
+@mixin card {
+  @include bordered;
+  @include rounded;
+  @include shadowed;
+  @include padded;
+}
