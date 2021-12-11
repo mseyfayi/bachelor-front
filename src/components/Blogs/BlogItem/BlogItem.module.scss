@@ -1,3 +1,5 @@
-.container {
+@import "common/styles";
 
+.container {
+  @include card
 }
