@@ -1,8 +1,7 @@
-import { Blog, isGitBlog, Tag } from 'common/types';
+import { Blog, Tag } from 'common/types';
 import { Dispatch, SetStateAction } from 'react';
-import GitBlogItem from 'components/Blogs/GitBlogItem/GitBlogItem';
-import SimpleBlogItem from 'components/Blogs/SimpleBlogItem';
 import { Chronology } from 'common/components';
+import BlogItem from './BlogItem';
 import classes from './BlogsPresentation.module.scss';
 
 interface Props {
@@ -15,9 +14,9 @@ interface Props {
 const BlogsPresentation = ({ filters, setFilters, list, isLoading }: Props) => (
   <div className={classes.container}>
     <Chronology
-      elements={list?.map((blog) =>
-        isGitBlog(blog) ? <GitBlogItem key={blog.id} {...blog} /> : <SimpleBlogItem key={blog.id} {...blog} />,
-      )}
+      elements={list?.map((blog) => (
+        <BlogItem key={blog.id} {...blog} />
+      ))}
     />
   </div>
 );
