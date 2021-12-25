@@ -11,7 +11,21 @@
   font-size: 20px;
 
   > svg {
-    margin: 0 10px;
+    margin: 0 0 0 10px;
   }
-;
+}
+
+.dialogContainer {
+  .dialogContent {
+    direction: ltr;
+  }
+
+  .dialogAction {
+    display: flex;
+    padding: 0 10px 10px 10px;
+
+    > *:not(:first-child) {
+      margin-right: 5px;
+    }
+  }
 }
