@@ -89,6 +89,8 @@ const Chronology: React.FC<Props> = ({ elements, ...restProps }) => {
 
   useEffect(() => {
     redraw();
+    window.addEventListener('resize', redraw);
+    return () => window.removeEventListener('resize', redraw);
   }, [redraw]);
 
   return (

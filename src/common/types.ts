@@ -1,8 +1,12 @@
-// todo fix this
 export interface Tag {
   id: string;
   name: string;
   color: string;
+}
+
+export interface Category {
+  title: string;
+  items: Array<Tag>;
 }
 
 export interface User {
@@ -17,7 +21,7 @@ export interface User {
 interface Comment {
   id: string;
   user: User;
-  context: string;
+  content: string;
 }
 
 interface PostFile {
@@ -33,14 +37,16 @@ export interface SimplePost {
   content: string;
   likesCount: number;
   isLiked: boolean;
-  comments: Array<Comment>;
-  files?: Array<PostFile>;
+  commentsCount?: number;
+  comments?: Array<Comment>;
+  file?: PostFile;
 }
 
 export interface GitPost extends SimplePost {
   repoUrl: string;
   repoTitle: string;
-  description: string;
+  repoDescription: string;
+  repoPicture: string;
   starsCount: number;
   forksCount: number;
 }

@@ -21,7 +21,10 @@ export const useIQuery = <
 >(
   queryKey: TQueryKey,
   queryFn: QueryFunction<TQueryFnData, TQueryKey>,
-  defaultErrorMessage: string,
+  defaultErrorMessage?: string,
   options?: Omit<UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>, 'queryKey' | 'queryFn'>,
 ) =>
-  useQuery<TQueryFnData, TError, TData, TQueryKey>(queryKey, queryFn, { onError: getOnError(defaultErrorMessage), ...options });
+  useQuery<TQueryFnData, TError, TData, TQueryKey>(queryKey, queryFn, {
+    onError: defaultErrorMessage ? getOnError(defaultErrorMessage) : undefined,
+    ...options,
+  });

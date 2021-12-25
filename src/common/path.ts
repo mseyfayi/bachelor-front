@@ -1,5 +1,3 @@
-import { Tag } from 'common/types';
-
 const backendServer = 'http://localhost:3000/api';
 
 const getQueriedUrl = (url: string, parameters: { [key: string]: unknown }): string => {
@@ -11,4 +9,4 @@ const getQueriedUrl = (url: string, parameters: { [key: string]: unknown }): str
   );
 };
 
-export const getTimelineUrl = (filters: Array<Tag>) => getQueriedUrl(`${backendServer}/timeline`, { filters });
+export const getTimelineUrl = (filters: Array<string>) => getQueriedUrl(`${backendServer}/timeline`, { filters });

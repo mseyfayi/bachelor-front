@@ -1,10 +1,9 @@
-import { Post, isGitPost, GitPost } from 'common/types';
+import { isGitPost, Post } from 'common/types';
 import { Avatar, IconButton } from '@mui/material';
 import { classnames, getUsername } from 'common/utils';
 import TagItem from 'common/components/TagItem';
 import Like from 'common/components/Like';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
 import SimplePostContent from './SimplePostContent';
 import GitPostContent from './GitPostContent';
 import classes from './PostItem.module.scss';
@@ -23,12 +22,6 @@ const PostItem = (post: Props) => {
         />
         <p>{post.likesCount}</p>
       </div>
-      {isGitPost(post) && (
-        <div>
-          <StarBorderIcon />
-          <p>{(post as GitPost).starsCount}</p>
-        </div>
-      )}
       <div>
         <IconButton
           onClick={() => {
@@ -37,7 +30,7 @@ const PostItem = (post: Props) => {
         >
           <ChatBubbleOutlineIcon />
         </IconButton>
-        <p> {post.comments.length}</p>
+        <p>{post.comments?.length}</p>
       </div>
     </div>
   );
