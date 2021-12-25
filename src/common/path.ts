@@ -1,4 +1,4 @@
-const backendServer = 'http://localhost:3000/api';
+const backendServer = 'http://localhost:5000/api';
 
 const getQueriedUrl = (url: string, parameters: { [key: string]: unknown }): string => {
   const getDelimiter = (currentUrl: string) => (currentUrl.includes('?') ? '&' : '?');
@@ -9,4 +9,5 @@ const getQueriedUrl = (url: string, parameters: { [key: string]: unknown }): str
   );
 };
 
-export const getPostsUrl = (filters: Array<string>) => getQueriedUrl(`${backendServer}/posts`, { filters });
+export const getGetPostsUrl = (filters: Array<string>) => getQueriedUrl(`${backendServer}/posts`, { filters });
+export const getPostPostsUrl = () => `${backendServer}/posts`;

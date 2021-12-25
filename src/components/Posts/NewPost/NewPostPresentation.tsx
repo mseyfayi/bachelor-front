@@ -5,15 +5,17 @@ import { Dialog, DialogContent, DialogTitle, DialogActions } from '@mui/material
 import Button from 'common/components/Button';
 import { useState } from 'react';
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
+import { Post } from 'common/types';
 import classes from './NewPostPresentation.module.scss';
 
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
 
-type Props = { create: () => void; isLoading: boolean };
+type Props = { create: (post: Partial<Post>) => void; isLoading: boolean };
 
-const NewPostPresentation = (props: Props) => {
+const NewPostPresentation = ({ create, isLoading }: Props) => {
   const [open, setOpen] = useState(false);
-  const [content, setContent] = useState('false');
+  const [content, setContent] = useState('');
+
   return (
     <>
       <Dialog maxWidth="xl" fullWidth open={open} onClose={() => setOpen(false)}>
@@ -22,7 +24,7 @@ const NewPostPresentation = (props: Props) => {
           <MDEditor value={content} onChange={(str) => setContent(str ?? '')} />
         </DialogContent>
         <DialogActions>
-          <Button onClick={props.create} isLoading={props.isLoading}>
+          <Button onClick={() => create({ content })} isLoading={isLoading}>
             ذخیره
           </Button>
           <Button onClick={() => setOpen(false)}>انصراف</Button>
