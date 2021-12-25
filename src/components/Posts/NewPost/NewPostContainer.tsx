@@ -1,7 +1,13 @@
 import NewPostPresentation from './NewPostPresentation';
 
-type Props = {};
-
-const NewPostContainer = ({}: Props) => <NewPostPresentation />;
+const NewPostContainer = () => {
+  const createPostMutation = {
+    mutate: () => {
+      /* todo */
+    },
+    isLoading: true,
+  };
+  return <NewPostPresentation isLoading={createPostMutation.isLoading} create={createPostMutation.mutate} />;
+};
 
 export default NewPostContainer;

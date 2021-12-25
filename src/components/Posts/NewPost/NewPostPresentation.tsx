@@ -1,8 +1,10 @@
-import { Dialog, DialogContent, DialogTitle, DialogActions, Button } from '@mui/material';
+import { Dialog, DialogContent, DialogTitle, DialogActions } from '@mui/material';
+import Button from 'common/components/Button';
 import { useState } from 'react';
+import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
 import classes from './NewPostPresentation.module.scss';
 
-type Props = {};
+type Props = { create: () => void; isLoading: boolean };
 
 const NewPostPresentation = (props: Props) => {
   const [open, setOpen] = useState(false);
@@ -12,17 +14,14 @@ const NewPostPresentation = (props: Props) => {
         <DialogTitle>پست جدید</DialogTitle>
         <DialogContent>{/* todo markdown */}koft</DialogContent>
         <DialogActions>
-          <Button
-            onClick={() => {
-              /* todo */
-            }}
-          >
+          <Button onClick={props.create} isLoading={props.isLoading}>
             ذخیره
           </Button>
           <Button onClick={() => setOpen(false)}>انصراف</Button>
         </DialogActions>
       </Dialog>
       <div className={classes.container} onClick={() => setOpen(true)}>
+        <AddCircleOutlineRoundedIcon />
         جدید
       </div>
     </>

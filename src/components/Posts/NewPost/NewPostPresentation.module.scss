@@ -1,3 +1,17 @@
-.container {
+@import "common/styles";
 
+.container {
+  @include card;
+  @include center;
+  background: #fafafa;
+  border-style: dashed;
+  min-height: 150px;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 20px;
+
+  > svg {
+    margin: 0 10px;
+  }
+;
 }
