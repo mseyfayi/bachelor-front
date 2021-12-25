@@ -20,7 +20,7 @@ const NewPostPresentation = ({ create, isLoading }: Props) => {
     <>
       <Dialog maxWidth="xl" fullWidth open={open} onClose={() => setOpen(false)}>
         <DialogTitle>پست جدید</DialogTitle>
-        <DialogContent>
+        <DialogContent className={classes.dialogContent}>
           <MDEditor value={content} onChange={(str) => setContent(str ?? '')} />
         </DialogContent>
         <DialogActions>
