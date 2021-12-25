@@ -1,5 +1,5 @@
 import { fetchApi, getGetConfig } from 'common/utils';
-import { getTimelineUrl } from 'common/path';
+import { getPostsUrl } from 'common/path';
 import { useState } from 'react';
 import { useIQuery } from 'common/reactQuery';
 import { Post, Tag } from 'common/types';
@@ -81,7 +81,7 @@ const PostsContainer = () => {
               forksCount: 100,
             },
           ]
-        : fetchApi<Array<Post>>(getTimelineUrl(filters.map((filter) => filter.id)), getGetConfig()),
+        : fetchApi<Array<Post>>(getPostsUrl(filters.map((filter) => filter.id)), getGetConfig()),
     'خطایی در هنگام گرفتن لیست رخ داده است',
   );
   return <PostsPresentation {...{ filters, setFilters, list, isLoading }} />;

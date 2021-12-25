@@ -9,4 +9,4 @@ const getQueriedUrl = (url: string, parameters: { [key: string]: unknown }): str
   );
 };
 
-export const getTimelineUrl = (filters: Array<string>) => getQueriedUrl(`${backendServer}/timeline`, { filters });
+export const getPostsUrl = (filters: Array<string>) => getQueriedUrl(`${backendServer}/posts`, { filters });
