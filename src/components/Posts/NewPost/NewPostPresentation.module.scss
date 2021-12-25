@@ -15,6 +15,17 @@
   }
 }
 
-.dialogContent {
-  direction: ltr;
+.dialogContainer {
+  .dialogContent {
+    direction: ltr;
+  }
+
+  .dialogAction {
+    display: flex;
+    padding: 0 10px 10px 10px;
+
+    > *:not(:first-child) {
+      margin-right: 5px;
+    }
+  }
 }
