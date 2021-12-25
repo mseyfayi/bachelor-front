@@ -1,6 +1,6 @@
-import { useQuery } from 'react-query';
-import { QueryFunction, QueryKey } from 'react-query/types/core/types';
-import { UseQueryOptions } from 'react-query/types/react/types';
+import { useMutation, useQuery } from 'react-query';
+import { QueryFunction, QueryKey, MutationFunction } from 'react-query/types/core/types';
+import { UseMutationOptions, UseQueryOptions } from 'react-query/types/react/types';
 import { snackActions } from 'common/utils/snackbar';
 
 interface IError {
@@ -28,3 +28,8 @@ export const useIQuery = <
     onError: defaultErrorMessage ? getOnError(defaultErrorMessage) : undefined,
     ...options,
   });
+
+export const useIMutation = <TVariables = void, TData = unknown, TError extends IError = IError, TContext = unknown>(
+  mutationFn: MutationFunction<TData, TVariables>,
+  options?: Omit<UseMutationOptions<TData, TError, TVariables, TContext>, 'mutationFn'>,
+) => useMutation<TData, TError, TVariables, TContext>(mutationFn, options);
