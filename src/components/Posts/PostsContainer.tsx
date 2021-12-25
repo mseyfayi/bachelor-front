@@ -81,7 +81,7 @@ const PostsContainer = () => {
               forksCount: 100,
             },
           ]
-        : fetchApi<Array<Post>>(getTimelineUrl(filters), getGetConfig()),
+        : fetchApi<Array<Post>>(getTimelineUrl(filters.map((filter) => filter.id)), getGetConfig()),
     'خطایی در هنگام گرفتن لیست رخ داده است',
   );
   return <PostsPresentation {...{ filters, setFilters, list, isLoading }} />;
