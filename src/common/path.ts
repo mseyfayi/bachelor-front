@@ -9,5 +9,5 @@ const getQueriedUrl = (url: string, parameters: { [key: string]: unknown }): str
   );
 };
 
-export const getGetPostsUrl = (filters: Array<string>) => getQueriedUrl(`${backendServer}/posts`, { filters });
+export const getGetPostsUrl = (page = 1, limit = 10) => getQueriedUrl(`${backendServer}/posts`, { page, limit });
 export const getPostPostsUrl = () => `${backendServer}/posts`;

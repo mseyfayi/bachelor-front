@@ -9,9 +9,9 @@ const PostsContainer = () => {
   const [filters, setFilters] = useState<Array<Tag>>([]);
   // todo should be infinite loop
   const { data: list, isLoading } = useIQuery<Array<Post> | undefined>(
-    ['timeline', filters],
-    () => fetchApi<Array<Post>>(getGetPostsUrl(filters.map((filter) => filter.id)), getGetConfig()),
-    'خطایی در هنگام گرفتن لیست رخ داده است',
+    ['posts', filters],
+    () => fetchApi<Array<Post>>(getGetPostsUrl(), getGetConfig()),
+    'خطایی در هنگام گرفتن لیست پست‌ها رخ داده است',
   );
   return <PostsPresentation {...{ filters, setFilters, list, isLoading }} />;
 };
