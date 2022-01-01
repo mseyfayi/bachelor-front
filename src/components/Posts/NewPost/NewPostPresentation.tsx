@@ -51,7 +51,12 @@ const NewPostPresentation = ({
                   دریافت مخزن با خطا مواجه شد
                 </Typography>
               )}
-              {openGraph && <OpenGraphImage {...openGraph} />}
+              {!openGraphLoading && !openGraphError && openGraph && (
+                <OpenGraphImage
+                  openGraph={openGraph}
+                  sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
+                />
+              )}
             </>
           )}
           <MarkDown value={content} onChange={setContent} />

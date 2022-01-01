@@ -55,6 +55,7 @@ export const useDelayedQuery = <TData>(query: string, queryKey: string, queryFn:
     if (!query) return;
 
     if (timeoutInstance) clearTimeout(timeoutInstance);
+    setData(null);
 
     const timeout = setTimeout(() => {
       mutation.mutate();
