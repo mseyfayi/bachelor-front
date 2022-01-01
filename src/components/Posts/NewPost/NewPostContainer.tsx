@@ -1,20 +1,30 @@
-import { useIMutation } from 'common/reactQuery';
-import { Post } from 'common/types';
-import { getPostPostsUrl } from 'common/path';
-import { fetchApi, getPostConfig } from 'common/utils';
+import { useDelayedQuery, useIMutation } from 'common/reactQuery';
+import { OpenGraph, Post } from 'common/types';
+import { getGithubOGUrl, getPostPostsUrl } from 'common/path';
+import { fetchApi, getGetConfig, getPostConfig } from 'common/utils';
 import { useState } from 'react';
 import NewPostPresentation from './NewPostPresentation';
 
 const NewPostContainer = () => {
-  // todo fetch meta
   const [githubLink, setGithubLink] = useState('');
   const createPostMutation = useIMutation<Partial<Post>>((post) => fetchApi(getPostPostsUrl(), getPostConfig(post)));
+  const {
+    data: openGraphData,
+    isLoading: openGraphLoading,
+    isError: openGraphError,
+  } = useDelayedQuery<{ openGraph: OpenGraph }>(githubLink, 'github-opengraph', () =>
+    fetchApi(getGithubOGUrl(githubLink), getGetConfig()),
+  );
+
   return (
     <NewPostPresentation
       isLoading={createPostMutation.isLoading}
       create={createPostMutation.mutate}
       githubLink={githubLink}
       setGithubLink={setGithubLink}
+      openGraph={openGraphData?.openGraph}
+      openGraphLoading={openGraphLoading}
+      openGraphError={openGraphError}
     />
   );
 };

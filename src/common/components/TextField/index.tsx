@@ -1,9 +1,24 @@
 import React from 'react';
-import { Box, InputBase, InputBaseProps } from '@mui/material';
+import { Box, CircularProgress, InputAdornment, InputBase, InputBaseProps } from '@mui/material';
 
-const TextField = (props: InputBaseProps) => (
+interface Props extends InputBaseProps {
+  isLoading: boolean;
+}
+
+const TextField = ({ isLoading, ...props }: Props) => (
   <Box sx={{ px: 2, py: 1, my: 1, borderRadius: 2, border: 1, borderColor: '#ccc' }}>
-    <InputBase {...props} dir="ltr" sx={{ verticalAlign: 'middle', width: 1 }} />
+    <InputBase
+      {...props}
+      sx={{ verticalAlign: 'middle', width: 1 }}
+      disabled={isLoading || props.disabled}
+      endAdornment={
+        isLoading ? (
+          <InputAdornment position="end">
+            <CircularProgress size={14} color="inherit" />
+          </InputAdornment>
+        ) : undefined
+      }
+    />
   </Box>
 );
 
