@@ -1,32 +1,28 @@
 import type { NextPage, GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
+import Posts from 'components/Posts';
 
 const Home: NextPage = () => (
-  <div>
+  <>
     <Head>
-      <title />
+      <title>Home</title>
     </Head>
-  </div>
+    <Posts />
+  </>
 );
 
 export default Home;
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export function getServerSideProps(context: GetServerSidePropsContext) {
   const { req } = context;
   const { cookies } = req;
-  // todo
-  if (true || (cookies && cookies.loginInfo)) {
+  if (!cookies || !cookies.loginInfo) {
     return {
       redirect: {
-        destination: '/home',
+        destination: '/auth/login',
         permanent: false,
       },
     };
   }
-  return {
-    redirect: {
-      destination: '/login',
-      permanent: false,
-    },
-  };
+  return {};
 }
