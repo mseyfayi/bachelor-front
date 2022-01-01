@@ -11,7 +11,7 @@ const PostsContainer = () => {
   const { data: list, isLoading } = useIQuery<Array<Post> | undefined>(
     ['timeline', filters],
     () =>
-      false
+      true
         ? [
             {
               id: 'id1',

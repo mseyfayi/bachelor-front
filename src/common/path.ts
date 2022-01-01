@@ -10,4 +10,6 @@ const getQueriedUrl = (url: string, parameters: { [key: string]: unknown }): str
 };
 
 export const getGetPostsUrl = (page = 1, limit = 10) => getQueriedUrl(`${backendServer}/v1/posts`, { page, limit });
-export const getPostPostsUrl = () => `${backendServer}/posts`;
+export const getPostPostsUrl = () => `${backendServer}/v1/posts`;
+export const getLikePostUrl = (postId: string) => `${backendServer}/v1/posts/${postId}/like`;
+export const getUnlikePostUrl = (postId: string) => `${backendServer}/v1/posts/${postId}/unlike`;
