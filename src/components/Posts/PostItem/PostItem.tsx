@@ -1,9 +1,11 @@
 import { isGitPost, Post } from 'common/types';
 import { Avatar, IconButton } from '@mui/material';
-import { classnames, getUsername } from 'common/utils';
+import { classnames, fetchApi, getPostConfig, getUsername } from 'common/utils';
 import TagItem from 'common/components/TagItem';
 import Like from 'common/components/Like';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import { useIMutation } from 'common/reactQuery';
+import { getLikePostUrl, getUnlikePostUrl } from 'common/path';
 import SimplePostContent from './SimplePostContent';
 import GitPostContent from './GitPostContent';
 import classes from './PostItem.module.scss';
@@ -11,15 +13,14 @@ import classes from './PostItem.module.scss';
 type Props = Post;
 
 const PostItem = (post: Props) => {
+  const likeMutation = useIMutation(() =>
+    fetchApi(post.isLiked ? getUnlikePostUrl(post.id) : getLikePostUrl(post.id), getPostConfig()),
+  );
+
   const renderFooter = () => (
     <div className={classnames('d-flex flex-row justify-content-between', classes.footer)}>
       <div>
-        <Like
-          isLiked={post.isLiked}
-          likePost={() => {
-            /* todo like */
-          }}
-        />
+        <Like isLiked={post.isLiked} isLoading={likeMutation.isLoading} likePost={likeMutation.mutate} />
         <p>{post.likesCount}</p>
       </div>
       <div>
