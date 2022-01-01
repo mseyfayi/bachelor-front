@@ -1,5 +1,5 @@
-import { Checkbox, Dialog, DialogContent, DialogTitle, FormControlLabel } from '@mui/material';
-import { Button, MarkDown, TextField } from 'common/components';
+import { Checkbox, Dialog, DialogContent, DialogTitle, FormControlLabel, Typography } from '@mui/material';
+import { Button, MarkDown, OpenGraphImage, TextField } from 'common/components';
 import { useState } from 'react';
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
 import { OpenGraph, Post } from 'common/types';
@@ -12,9 +12,18 @@ type Props = {
   setGithubLink: (val: string) => void;
   openGraph?: OpenGraph;
   openGraphLoading: boolean;
+  openGraphError: boolean;
 };
 
-const NewPostPresentation = ({ create, isLoading, githubLink, setGithubLink, openGraph, openGraphLoading }: Props) => {
+const NewPostPresentation = ({
+  create,
+  isLoading,
+  githubLink,
+  setGithubLink,
+  openGraph,
+  openGraphLoading,
+  openGraphError,
+}: Props) => {
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState('');
   const [isGithubProject, setGithubProject] = useState(false);
@@ -29,13 +38,21 @@ const NewPostPresentation = ({ create, isLoading, githubLink, setGithubLink, ope
             label="پروژه گیت‌هاب"
           />
           {isGithubProject && (
-            <TextField
-              value={githubLink}
-              onChange={(e) => setGithubLink(e.target.value)}
-              placeholder="github-username/repository-name"
-              dir="ltr"
-              isLoading={openGraphLoading}
-            />
+            <>
+              <TextField
+                value={githubLink}
+                onChange={(e) => setGithubLink(e.target.value)}
+                placeholder="github-username/repository-name"
+                dir="ltr"
+                isLoading={openGraphLoading}
+              />
+              {openGraphError && (
+                <Typography fontSize={13} color="red">
+                  دریافت مخزن با خطا مواجه شد
+                </Typography>
+              )}
+              {openGraph && <OpenGraphImage {...openGraph} />}
+            </>
           )}
           <MarkDown value={content} onChange={setContent} />
         </DialogContent>

@@ -8,10 +8,12 @@ import NewPostPresentation from './NewPostPresentation';
 const NewPostContainer = () => {
   const [githubLink, setGithubLink] = useState('');
   const createPostMutation = useIMutation<Partial<Post>>((post) => fetchApi(getPostPostsUrl(), getPostConfig(post)));
-  const { data: openGraphData, isLoading: openGraphLoading } = useDelayedQuery<{ openGraph: OpenGraph }>(
-    githubLink,
-    'github-opengraph',
-    () => fetchApi(getGithubOGUrl(githubLink), getGetConfig()),
+  const {
+    data: openGraphData,
+    isLoading: openGraphLoading,
+    isError: openGraphError,
+  } = useDelayedQuery<{ openGraph: OpenGraph }>(githubLink, 'github-opengraph', () =>
+    fetchApi(getGithubOGUrl(githubLink), getGetConfig()),
   );
 
   return (
@@ -22,6 +24,7 @@ const NewPostContainer = () => {
       setGithubLink={setGithubLink}
       openGraph={openGraphData?.openGraph}
       openGraphLoading={openGraphLoading}
+      openGraphError={openGraphError}
     />
   );
 };

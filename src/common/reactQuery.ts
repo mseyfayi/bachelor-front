@@ -52,6 +52,8 @@ export const useDelayedQuery = <TData>(query: string, queryKey: string, queryFn:
   });
 
   useEffect(() => {
+    if (!query) return;
+
     if (timeoutInstance) clearTimeout(timeoutInstance);
 
     const timeout = setTimeout(() => {
@@ -60,5 +62,5 @@ export const useDelayedQuery = <TData>(query: string, queryKey: string, queryFn:
     setTimeoutInstance(timeout);
   }, [query]);
 
-  return { data, isLoading: mutation.isLoading };
+  return { ...mutation, data };
 };
