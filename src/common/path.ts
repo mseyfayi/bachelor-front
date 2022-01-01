@@ -13,3 +13,4 @@ export const getGetPostsUrl = (page = 1, limit = 10) => getQueriedUrl(`${backend
 export const getPostPostsUrl = () => `${backendServer}/v1/posts`;
 export const getLikePostUrl = (postId: string) => `${backendServer}/v1/posts/${postId}/like`;
 export const getUnlikePostUrl = (postId: string) => `${backendServer}/v1/posts/${postId}/unlike`;
+export const getGithubOGUrl = (repoAddress: string) => `${backendServer}/v1/github-og/${repoAddress}`;

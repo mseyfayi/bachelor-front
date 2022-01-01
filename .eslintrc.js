@@ -1,4 +1,8 @@
 module.exports = {
+  env: {
+    browser: true,
+    node: true,
+  },
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'eslint-plugin-prettier', 'react-hooks'],
   extends: ['plugin:@typescript-eslint/recommended', 'next', 'next/core-web-vitals', 'airbnb', 'eslint-config-prettier'],

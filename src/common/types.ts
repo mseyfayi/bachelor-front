@@ -53,4 +53,12 @@ export interface GitPost extends SimplePost {
 
 export type Post = GitPost | SimplePost;
 
+export interface OpenGraph {
+  image: string;
+  alt: string;
+  title: `${string}/${string}`;
+  url: string;
+  description: string;
+}
+
 export const isGitPost = (post: Post): post is GitPost => (post as GitPost).repoUrl !== undefined;
