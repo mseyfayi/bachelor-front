@@ -27,7 +27,11 @@ const NewPostPresentation = ({ create, isLoading, githubLink, setGithubLink }: P
             label="پروژه گیت‌هاب"
           />
           {isGithubProject && (
-            <TextField value={githubLink} onChange={(e) => setGithubLink(e.target.value)} placeholder="لینک مخزن گیت‌هاب" />
+            <TextField
+              value={githubLink}
+              onChange={(e) => setGithubLink(e.target.value)}
+              placeholder="example: https://github.com/user/example"
+            />
           )}
           <MarkDown value={content} onChange={setContent} />
         </DialogContent>
