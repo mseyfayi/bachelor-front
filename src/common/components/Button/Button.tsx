@@ -25,8 +25,4 @@ function Button({ children, isLoading, onClick, ...restProps }: Props) {
   );
 }
 
-Button.propTypes = {};
-
-Button.defaultProps = {};
-
 export default Button;
