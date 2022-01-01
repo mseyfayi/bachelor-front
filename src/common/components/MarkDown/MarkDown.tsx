@@ -3,6 +3,7 @@ import '@uiw/react-markdown-preview/markdown.css';
 import React from 'react';
 import dynamic from 'next/dynamic';
 import Markdown from 'react-markdown';
+import Box from '@mui/material/Box';
 import classes from './MarkDown.module.scss';
 
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
@@ -14,9 +15,13 @@ interface Props {
 }
 
 const MarkDown = ({ value, onChange, preview }: Props) => (
-  <div className={classes.md}>
-    {preview ? <Markdown>{value}</Markdown> : <MDEditor value={value} onChange={(str) => str && onChange && onChange(str)} />}
-  </div>
+  <Box className={classes.md} sx={{ minHeight: 300 }}>
+    {preview ? (
+      <Markdown>{value}</Markdown>
+    ) : (
+      <MDEditor value={value} onChange={(str) => str && onChange && onChange(str)} height={300} />
+    )}
+  </Box>
 );
 
 export default MarkDown;
