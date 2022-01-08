@@ -1,8 +1,8 @@
-import { Checkbox, Dialog, DialogContent, DialogTitle, FormControlLabel, Typography } from '@mui/material';
-import { Button, MarkDown, OpenGraphImage, TextField } from 'common/components';
+import { Box, Checkbox, CircularProgress, Dialog, DialogContent, DialogTitle, FormControlLabel, Typography } from '@mui/material';
+import { Button, CategorySelector, MarkDown, OpenGraphImage, TextField } from 'common/components';
 import { useState } from 'react';
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
-import { Category, OpenGraph, Post } from 'common/types';
+import { Category, OpenGraph, Post, Tag } from 'common/types';
 import classes from './NewPostPresentation.module.scss';
 
 type Props = {
@@ -31,7 +31,7 @@ const NewPostPresentation = ({
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState('');
   const [isGithubProject, setGithubProject] = useState(false);
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState<Array<Tag['id']>>([]);
 
   return (
     <>
@@ -66,6 +66,20 @@ const NewPostPresentation = ({
           )}
           <MarkDown value={content} onChange={setContent} />
         </DialogContent>
+        <Box sx={{ display: 'flex' }}>
+          {categoriesLoading ? (
+            <CircularProgress size={15} />
+          ) : (
+            categories?.map((category, index) => (
+              <CategorySelector
+                key={category.id}
+                category={category}
+                selectTag={(tag) => setTags((prev) => [...prev].splice(index, 1, tag))}
+                selectedTagId={tags[index]}
+              />
+            ))
+          )}
+        </Box>
         <footer className={classes.dialogAction}>
           <Button onClick={() => create({ repoUrl: githubLink, content, tags })} isLoading={isLoading}>
             ذخیره

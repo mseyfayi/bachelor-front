@@ -33,7 +33,7 @@ interface PostFile {
 
 export interface SimplePost {
   id: string;
-  tags: Array<Tag>;
+  tags: Array<Tag> | Array<Tag['id']>;
   author: Partial<User>;
   content: string;
   likesCount: number;
