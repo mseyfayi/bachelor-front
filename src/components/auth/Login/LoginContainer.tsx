@@ -6,8 +6,8 @@ import type { Data } from './LoginPresentation';
 
 const LoginContainer = () => {
   // todo save token
-  const mutation = useIMutation<Data>(() => fetchApi(getSignInUrl(), getPostConfig()));
-  return <LoginPresentation isLoading={mutation.isLoading} singIn={mutation.mutate} />;
+  const mutation = useIMutation<Data>((data) => fetchApi(getSignInUrl(), getPostConfig({ ...data })));
+  return <LoginPresentation isLoading={mutation.isLoading} signIn={mutation.mutate} />;
 };
 
 export default LoginContainer;

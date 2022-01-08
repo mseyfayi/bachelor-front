@@ -1,14 +1,14 @@
 import React from 'react';
 import { Box, CircularProgress, InputAdornment, InputBase, InputBaseProps, InputLabel } from '@mui/material';
 
-interface Props extends InputBaseProps {
+export interface TextFieldProps extends InputBaseProps {
   id?: string;
   isLoading?: boolean;
   disabled?: boolean;
   label?: React.ReactNode;
 }
 
-const TextField = React.forwardRef<HTMLInputElement, Props>(({ id, label, isLoading, disabled, ...props }, ref) => (
+const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(({ id, label, isLoading, disabled, ...props }, ref) => (
   <Box sx={{ display: 'flex', alignItems: 'center', mt: 1, width: { xs: 1 } }}>
     <InputLabel htmlFor={id} sx={{ width: 100 }}>
       {label}
