@@ -1,13 +1,11 @@
-import type { NextPage, GetServerSidePropsContext } from 'next';
+import type { GetServerSidePropsContext, NextPage } from 'next';
 import Head from 'next/head';
-import Posts from 'components/Posts';
 
 const Home: NextPage = () => (
   <>
     <Head>
-      <title>Home</title>
+      <title>Kooleh Poshti</title>
     </Head>
-    <Posts />
   </>
 );
 
@@ -24,5 +22,10 @@ export function getServerSideProps(context: GetServerSidePropsContext) {
       },
     };
   }
-  return {};
+  return {
+    redirect: {
+      destination: '/home',
+      permanent: false,
+    },
+  };
 }

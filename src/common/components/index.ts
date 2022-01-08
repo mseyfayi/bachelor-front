@@ -5,3 +5,4 @@ export { default as Button } from './Button';
 export { default as MarkDown } from './MarkDown';
 export { default as TextField } from './TextField';
 export { default as OpenGraphImage } from './OpenGraphImage';
+export { default as FormError } from './FormError';
