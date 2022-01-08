@@ -1,6 +1,6 @@
 import { Box, Checkbox, CircularProgress, Dialog, DialogContent, DialogTitle, FormControlLabel, Typography } from '@mui/material';
 import { Button, CategorySelector, MarkDown, OpenGraphImage, TextField } from 'common/components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
 import { Category, OpenGraph, Post, Tag } from 'common/types';
 import classes from './NewPostPresentation.module.scss';
@@ -32,6 +32,10 @@ const NewPostPresentation = ({
   const [content, setContent] = useState('');
   const [isGithubProject, setGithubProject] = useState(false);
   const [tags, setTags] = useState<Array<Tag['id']>>([]);
+
+  useEffect(() => {
+    setTags(Array(categories?.length).fill(undefined));
+  }, [categories]);
 
   return (
     <>
@@ -74,7 +78,7 @@ const NewPostPresentation = ({
               <CategorySelector
                 key={category.id}
                 category={category}
-                selectTag={(tag) => setTags((prev) => [...prev].splice(index, 1, tag))}
+                selectTag={(tag) => setTags((prev) => prev.map((oldTag, index2) => (index === index2 ? tag : oldTag)))}
                 selectedTagId={tags[index]}
               />
             ))
