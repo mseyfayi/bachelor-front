@@ -1,8 +1,7 @@
 import { isGitPost, Post } from 'common/types';
 import { Avatar, IconButton } from '@mui/material';
 import { classnames, fetchApi, getPostConfig, getUsername } from 'common/utils';
-import TagItem from 'common/components/TagItem';
-import Like from 'common/components/Like';
+import { Like, TagItem } from 'common/components';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import { useIMutation } from 'common/reactQuery';
 import { getLikePostUrl, getUnlikePostUrl } from 'common/path';
