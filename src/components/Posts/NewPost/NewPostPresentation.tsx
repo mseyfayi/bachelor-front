@@ -2,7 +2,7 @@ import { Checkbox, Dialog, DialogContent, DialogTitle, FormControlLabel, Typogra
 import { Button, MarkDown, OpenGraphImage, TextField } from 'common/components';
 import { useState } from 'react';
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
-import { OpenGraph, Post } from 'common/types';
+import { Category, OpenGraph, Post } from 'common/types';
 import classes from './NewPostPresentation.module.scss';
 
 type Props = {
@@ -13,6 +13,8 @@ type Props = {
   openGraph?: OpenGraph;
   openGraphLoading: boolean;
   openGraphError: boolean;
+  categories?: Array<Category>;
+  categoriesLoading: boolean;
 };
 
 const NewPostPresentation = ({
@@ -23,10 +25,13 @@ const NewPostPresentation = ({
   openGraph,
   openGraphLoading,
   openGraphError,
+  categories,
+  categoriesLoading,
 }: Props) => {
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState('');
   const [isGithubProject, setGithubProject] = useState(false);
+  const [tags, setTags] = useState([]);
 
   return (
     <>
@@ -62,7 +67,7 @@ const NewPostPresentation = ({
           <MarkDown value={content} onChange={setContent} />
         </DialogContent>
         <footer className={classes.dialogAction}>
-          <Button onClick={() => create({ content })} isLoading={isLoading}>
+          <Button onClick={() => create({ repoUrl: githubLink, content, tags })} isLoading={isLoading}>
             ذخیره
           </Button>
           <Button onClick={() => setOpen(false)}>انصراف</Button>

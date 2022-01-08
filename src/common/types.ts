@@ -5,6 +5,7 @@ export interface Tag {
 }
 
 export interface Category {
+  id: string;
   title: string;
   items: Array<Tag>;
 }

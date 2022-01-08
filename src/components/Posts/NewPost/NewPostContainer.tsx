@@ -1,12 +1,36 @@
-import { useDelayedQuery, useIMutation } from 'common/reactQuery';
-import { OpenGraph, Post } from 'common/types';
-import { getGithubOGUrl, getPostPostsUrl } from 'common/path';
+import { useDelayedQuery, useIMutation, useIQuery } from 'common/reactQuery';
+import { Category, OpenGraph, Post } from 'common/types';
+import { getGetCategoriesUrl, getGithubOGUrl, getPostPostsUrl } from 'common/path';
 import { fetchApi, getGetConfig, getPostConfig } from 'common/utils';
 import { useState } from 'react';
 import NewPostPresentation from './NewPostPresentation';
 
 const NewPostContainer = () => {
   const [githubLink, setGithubLink] = useState('');
+  const { data: categories, isLoading: categoriesLoading } = useIQuery<Array<Category> | undefined>('categories', () =>
+    true
+      ? [
+          {
+            id: 'course',
+            title: 'درس',
+            items: [
+              { id: 'Embedded', name: 'امبدد', color: '#f00' },
+              { id: 'Simulation', name: 'شبیه‌سازی', color: '#f0f' },
+              { id: 'ًRobo', name: 'رباتیکز', color: '#00f' },
+            ],
+          },
+          {
+            id: 'prof',
+            title: 'استاد',
+            items: [
+              { id: 'Attar', name: 'عطار', color: '#dd0' },
+              { id: 'Safayi', name: 'صفایی', color: '#c6f' },
+              { id: 'Salimi', name: 'سلیمی', color: '#1cf' },
+            ],
+          },
+        ]
+      : fetchApi(getGetCategoriesUrl(), getGetConfig()),
+  );
   const createPostMutation = useIMutation<Partial<Post>>((post) => fetchApi(getPostPostsUrl(), getPostConfig(post)));
   const {
     data: openGraphData,
@@ -38,6 +62,8 @@ const NewPostContainer = () => {
       openGraph={openGraphData?.openGraph}
       openGraphLoading={openGraphLoading}
       openGraphError={openGraphError}
+      categories={categories}
+      categoriesLoading={categoriesLoading}
     />
   );
 };
