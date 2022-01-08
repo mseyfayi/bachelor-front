@@ -1,31 +1,30 @@
-import type { NextPage, GetServerSidePropsContext } from 'next';
+import type { GetServerSidePropsContext, NextPage } from 'next';
 import Head from 'next/head';
 
 const Home: NextPage = () => (
-  <div>
+  <>
     <Head>
-      <title />
+      <title>Kooleh Poshti</title>
     </Head>
-  </div>
+  </>
 );
 
 export default Home;
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export function getServerSideProps(context: GetServerSidePropsContext) {
   const { req } = context;
   const { cookies } = req;
-  // todo
-  if (true || (cookies && cookies.loginInfo)) {
+  if (!cookies || !cookies.loginInfo) {
     return {
       redirect: {
-        destination: '/home',
+        destination: '/auth/login',
         permanent: false,
       },
     };
   }
   return {
     redirect: {
-      destination: '/login',
+      destination: '/home',
       permanent: false,
     },
   };

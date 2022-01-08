@@ -9,7 +9,7 @@ interface Props extends BoxProps {
 
 const OpenGraphImage = ({ openGraph, ...props }: Props) => (
   <Box {...props}>
-    <Image src={openGraph.image} alt={openGraph.alt} layout="fixed" width={400} height={200} />
+    <Image src={openGraph.image} alt={openGraph['image:alt']} layout="fixed" width={400} height={200} />
   </Box>
 );
 

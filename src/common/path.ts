@@ -14,3 +14,5 @@ export const getPostPostsUrl = () => `${backendServer}/v1/posts`;
 export const getLikePostUrl = (postId: string) => `${backendServer}/v1/posts/${postId}/like`;
 export const getUnlikePostUrl = (postId: string) => `${backendServer}/v1/posts/${postId}/unlike`;
 export const getGithubOGUrl = (repoAddress: string) => `${backendServer}/v1/og/${repoAddress}`;
+export const getSignInUrl = () => `${backendServer}/v1/auth/signin`;
+export const getSignUpUrl = () => `${backendServer}/v1/auth/signup`;

@@ -36,7 +36,7 @@ export const useIMutation = <TVariables = void, TData = unknown, TError extends 
   options?: Omit<UseMutationOptions<TData, TError, TVariables, TContext>, 'mutationFn'>,
 ) =>
   useMutation<TData, TError, TVariables, TContext>(mutationFn, {
-    onError: defaultErrorMessage ? getOnError(defaultErrorMessage) : undefined,
+    onError: getOnError(defaultErrorMessage || 'خطای نامشخص'),
     ...options,
   });
 
