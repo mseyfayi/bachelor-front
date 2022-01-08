@@ -1,5 +1,7 @@
 import * as yup from 'yup';
 import Form, { Fields } from 'common/components/Form';
+import { Button } from '@mui/material';
+import { useRouter } from 'next/router';
 
 export type Data = {
   firstName: string;
@@ -15,6 +17,8 @@ type Props = {
 };
 
 const SignUpPresentation = ({ mutation, isLoading }: Props) => {
+  const router = useRouter();
+
   const fields: Fields<Data> = {
     firstName: {
       validation: yup.string().required('نام اجباری است'),
@@ -56,7 +60,16 @@ const SignUpPresentation = ({ mutation, isLoading }: Props) => {
       validation: yup.string().oneOf([yup.ref('password'), null], 'تایید رمز عبور با رمز عبور تداخل دارد'),
     },
   };
-  return <Form fields={fields} submitLabel="ثبت نام" mutation={mutation} isLoading={isLoading} />;
+
+  return (
+    <Form
+      fields={fields}
+      submitLabel="ثبت نام"
+      mutation={mutation}
+      isLoading={isLoading}
+      footerButton={<Button onClick={() => router.push('/auth/login')}>قبلا ثبت نام کرده‌اید؟</Button>}
+    />
+  );
 };
 
 export default SignUpPresentation;

@@ -1,5 +1,7 @@
 import * as yup from 'yup';
 import Form, { Fields } from 'common/components/Form';
+import { Button } from '@mui/material';
+import { useRouter } from 'next/router';
 
 export type Data = {
   behestiEmail: string;
@@ -12,6 +14,8 @@ type Props = {
 };
 
 const LoginPresentation = ({ mutation, isLoading }: Props) => {
+  const router = useRouter();
+
   const fields: Fields<Data> = {
     behestiEmail: {
       props: {
@@ -33,7 +37,16 @@ const LoginPresentation = ({ mutation, isLoading }: Props) => {
       validation: yup.string().min(8, 'رمز ورود حداقل باید ۸ رقم باشد').required('رمز ورود اجباری است'),
     },
   };
-  return <Form fields={fields} submitLabel="ورود" mutation={mutation} isLoading={isLoading} />;
+
+  return (
+    <Form
+      fields={fields}
+      submitLabel="ورود"
+      mutation={mutation}
+      isLoading={isLoading}
+      footerButton={<Button onClick={() => router.push('/auth/sign-up')}>حساب کاربری ندارید؟</Button>}
+    />
+  );
 };
 
 export default LoginPresentation;

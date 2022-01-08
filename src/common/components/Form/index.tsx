@@ -18,9 +18,10 @@ type Props<Data> = {
   submitLabel: string;
   mutation: (data: Data) => void;
   isLoading: boolean;
+  footerButton?: React.ReactNode;
 };
 
-const Form = <Data extends Record<string, unknown>>({ fields, submitLabel, mutation, isLoading }: Props<Data>) => {
+const Form = <Data extends Record<string, unknown>>({ fields, submitLabel, mutation, isLoading, footerButton }: Props<Data>) => {
   const {
     register,
     handleSubmit,
@@ -40,13 +41,16 @@ const Form = <Data extends Record<string, unknown>>({ fields, submitLabel, mutat
             <FormError error={errors[name]} />
           </React.Fragment>
         ))}
-        <Button
-          onClick={handleSubmit(mutation as SubmitHandler<Data>)}
-          isLoading={isLoading}
-          disabled={Object.keys(errors).length > 0}
-        >
-          {submitLabel}
-        </Button>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Button
+            onClick={handleSubmit(mutation as SubmitHandler<Data>)}
+            isLoading={isLoading}
+            disabled={Object.keys(errors).length > 0}
+          >
+            {submitLabel}
+          </Button>
+          {footerButton}
+        </Box>
       </Box>
     </Box>
   );
