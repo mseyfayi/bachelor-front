@@ -9,11 +9,11 @@ export interface TextFieldProps extends InputBaseProps {
 }
 
 const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(({ id, label, isLoading, disabled, ...props }, ref) => (
-  <Box sx={{ display: 'flex', alignItems: 'center', mt: 1, width: { xs: 1 } }}>
+  <Box sx={{ my: 2, width: { xs: 1 } }}>
     <InputLabel htmlFor={id} sx={{ width: 100 }}>
       {label}
     </InputLabel>
-    <Box sx={{ width: { xs: 1 }, my: 1, borderRadius: 2, border: 1, borderColor: '#ccc' }}>
+    <Box sx={{ width: { xs: 1 }, borderRadius: 2, border: 1, borderColor: '#ccc' }}>
       <InputBase
         {...props}
         ref={ref}

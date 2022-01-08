@@ -7,17 +7,17 @@ export type Data = {
 };
 
 type Props = {
-  signIn: (data: Data) => void;
+  mutation: (data: Data) => void;
   isLoading: boolean;
 };
 
-const LoginPresentation = ({ signIn, isLoading }: Props) => {
+const LoginPresentation = ({ mutation, isLoading }: Props) => {
   const fields: Fields<Data> = {
     behestiEmail: {
       props: {
         dir: 'ltr',
-        placeholder: 'example@mail.sbu.ac.ir',
         label: 'ایمیل بهشتی',
+        placeholder: 'example@mail.sbu.ac.ir',
       },
       validation: yup
         .string()
@@ -28,13 +28,12 @@ const LoginPresentation = ({ signIn, isLoading }: Props) => {
       props: {
         dir: 'ltr',
         type: 'password',
-        placeholder: 'password',
         label: 'رمز عبور',
       },
       validation: yup.string().min(8, 'رمز ورود حداقل باید ۸ رقم باشد').required('رمز ورود اجباری است'),
     },
   };
-  return <Form fields={fields} submitLabel="ورود" mutation={signIn} isLoading={isLoading} />;
+  return <Form fields={fields} submitLabel="ورود" mutation={mutation} isLoading={isLoading} />;
 };
 
 export default LoginPresentation;
