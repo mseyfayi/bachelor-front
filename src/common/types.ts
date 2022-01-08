@@ -55,7 +55,7 @@ export type Post = GitPost | SimplePost;
 
 export interface OpenGraph {
   image: string;
-  alt: string;
+  'image:alt': string;
   title: `${string}/${string}`;
   url: string;
   description: string;
