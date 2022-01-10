@@ -28,7 +28,7 @@ interface Comment {
 interface PostFile {
   name: string;
   size: string;
-  url: string;
+  id: string;
 }
 
 export interface SimplePost {

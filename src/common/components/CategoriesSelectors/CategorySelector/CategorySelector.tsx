@@ -14,7 +14,7 @@ function CategorySelector({ category, selectedTagId, selectTag }: Props) {
     <Select
       displayEmpty
       className={classes.container}
-      sx={{ m: 1, borderBottom: 0 }}
+      sx={{ m: 1, borderBottom: 0, width: 100 }}
       variant="outlined"
       value={selectedTagId || ''}
       onChange={(e) => selectTag(e.target.value)}
