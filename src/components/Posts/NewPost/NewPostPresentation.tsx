@@ -1,8 +1,8 @@
 import { Checkbox, Dialog, DialogContent, DialogTitle, FormControlLabel, Typography } from '@mui/material';
-import { Button, MarkDown, OpenGraphImage, TextField } from 'common/components';
+import { Button, CategoriesSelectors, MarkDown, OpenGraphImage, TextField } from 'common/components';
 import { useState } from 'react';
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
-import { OpenGraph, Post } from 'common/types';
+import { OpenGraph, Post, Tag } from 'common/types';
 import classes from './NewPostPresentation.module.scss';
 
 type Props = {
@@ -27,6 +27,7 @@ const NewPostPresentation = ({
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState('');
   const [isGithubProject, setGithubProject] = useState(false);
+  const [tags, setTags] = useState<Array<Tag['id']>>([]);
 
   return (
     <>
@@ -61,8 +62,9 @@ const NewPostPresentation = ({
           )}
           <MarkDown value={content} onChange={setContent} />
         </DialogContent>
+        <CategoriesSelectors tags={tags} setTags={setTags} />
         <footer className={classes.dialogAction}>
-          <Button onClick={() => create({ content })} isLoading={isLoading}>
+          <Button onClick={() => create({ repoUrl: githubLink, content, tags })} isLoading={isLoading}>
             ذخیره
           </Button>
           <Button onClick={() => setOpen(false)}>انصراف</Button>

@@ -7,3 +7,4 @@ export { default as TextField } from './TextField';
 export { default as OpenGraphImage } from './OpenGraphImage';
 export { default as FormError } from './FormError';
 export { default as Form } from './Form';
+export { default as CategoriesSelectors } from './CategoriesSelectors';

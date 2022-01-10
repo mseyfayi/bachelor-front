@@ -5,6 +5,7 @@ export interface Tag {
 }
 
 export interface Category {
+  id: string;
   title: string;
   items: Array<Tag>;
 }
@@ -27,12 +28,12 @@ interface Comment {
 interface PostFile {
   name: string;
   size: string;
-  url: string;
+  id: string;
 }
 
 export interface SimplePost {
   id: string;
-  tags: Array<Tag>;
+  tags: Array<Tag> | Array<Tag['id']>;
   author: Partial<User>;
   content: string;
   likesCount: number;

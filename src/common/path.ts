@@ -16,3 +16,4 @@ export const getUnlikePostUrl = (postId: string) => `${backendServer}/v1/posts/$
 export const getGithubOGUrl = (repoAddress: string) => `${backendServer}/v1/og/${repoAddress}`;
 export const getSignInUrl = () => `${backendServer}/v1/auth/signin`;
 export const getSignUpUrl = () => `${backendServer}/v1/auth/signup`;
+export const getGetCategoriesUrl = () => `${backendServer}/v1/categories`;

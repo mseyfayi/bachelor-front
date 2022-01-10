@@ -6,10 +6,10 @@ import { Post, Tag } from 'common/types';
 import PostsPresentation from './PostsPresentation';
 
 const PostsContainer = () => {
-  const [filters, setFilters] = useState<Array<Tag>>([]);
+  const [tags, setTags] = useState<Array<Tag['id']>>([]);
   // todo should be infinite loop
   const { data: list, isLoading } = useIQuery<Array<Post> | undefined>(
-    ['timeline', filters],
+    ['timeline', tags],
     () =>
       true
         ? [
@@ -93,7 +93,7 @@ const PostsContainer = () => {
         : fetchApi<Array<Post>>(getGetPostsUrl(), getGetConfig()),
     'خطایی در هنگام گرفتن لیست رخ داده است',
   );
-  return <PostsPresentation {...{ filters, setFilters, list, isLoading }} />;
+  return <PostsPresentation {...{ tags, setTags, list, isLoading }} />;
 };
 
 export default PostsContainer;
