@@ -14,6 +14,7 @@ const SignUpContainer = () => {
       onSuccess: () => {
         snackActions.success('ثبت نام با موفقیت انجام شد');
         setTimeout(() => {
+          // todo otp
           router.push('/auth/login');
         }, 1000);
       },
