@@ -1,0 +1,10 @@
+@import "common/styles";
+
+.container {
+  .readme {
+    padding: 30px;
+    @include bordered;
+    @include rounded(3px);
+    margin-bottom: 30px;
+  }
+}

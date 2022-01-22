@@ -7,14 +7,19 @@ type Props = {
   isLiked: boolean;
   likePost: () => void;
   isLoading?: boolean;
+  fontSize?: 'inherit' | 'large' | 'medium' | 'small';
 };
 
-const Like = ({ isLiked, likePost, isLoading }: Props) =>
+const Like = ({ isLiked, likePost, isLoading, fontSize }: Props) =>
   isLoading ? (
-    <CircularProgress size={10} />
+    <CircularProgress size={13} />
   ) : (
     <IconButton onClick={likePost}>
-      {isLiked ? <ThumbUpIcon color="primary" /> : <ThumbUpOutlinedIcon color="inherit" />}
+      {isLiked ? (
+        <ThumbUpIcon fontSize={fontSize} color="primary" />
+      ) : (
+        <ThumbUpOutlinedIcon fontSize={fontSize} color="inherit" />
+      )}
     </IconButton>
   );
 

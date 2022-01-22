@@ -19,7 +19,7 @@ export interface User {
   avatar?: string;
 }
 
-interface Comment {
+export interface Comment {
   id: string;
   user: User;
   content: string;
@@ -48,8 +48,8 @@ export interface GitPost extends SimplePost {
   repoTitle: string;
   repoDescription: string;
   repoPicture: string;
-  starsCount: number;
-  forksCount: number;
+  starsCount: string;
+  forksCount: string;
 }
 
 export type Post = GitPost | SimplePost;

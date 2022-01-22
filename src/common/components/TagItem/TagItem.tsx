@@ -5,12 +5,10 @@ import classes from './TagItem.module.scss';
 
 interface Props {
   tag: Tag;
-  deletable?: boolean;
-  deleteTag?: (tag: Tag) => void;
 }
-const TagItem = ({ tag, deletable, deleteTag }: Props) => (
+const TagItem = ({ tag }: Props) => (
   <div
-    style={{ background: `${tag.color}30` }}
+    style={{ background: `${tag.color}20` }}
     className={classnames('d-flex flex-row align-items-center justify-content-center', classes.container)}
   >
     {tag.name}
