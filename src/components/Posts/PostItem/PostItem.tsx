@@ -1,5 +1,5 @@
 import { isGitPost, Post, Tag } from 'common/types';
-import { Avatar, IconButton } from '@mui/material';
+import { Avatar, Box } from '@mui/material';
 import { classnames, fetchApi, getPostConfig, getUsername } from 'common/utils';
 import { Like, TagItem } from 'common/components';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
@@ -24,16 +24,10 @@ const PostItem = (post: Props) => {
         <Like isLiked={post.isLiked} isLoading={likeMutation.isLoading} likePost={likeMutation.mutate} />
         <p>{post.likesCount}</p>
       </div>
-      <div>
-        <IconButton
-          onClick={() => {
-            /* todo comment */
-          }}
-        >
-          <ChatBubbleOutlineIcon />
-        </IconButton>
+      <Box>
+        <ChatBubbleOutlineIcon />
         <p>{post.comments?.length}</p>
-      </div>
+      </Box>
     </div>
   );
 
@@ -41,7 +35,7 @@ const PostItem = (post: Props) => {
     <div className={classes.container} onClick={() => router.push(`/post/${post.id}`)}>
       <div className="d-flex flex-row align-items-center justify-content-between">
         <div className="d-flex flex-row align-items-center">
-          <Avatar src={post.author.avatar} alt={getUsername(post.author)} sx={{ width: 54, height: 54 }} />
+          <Avatar src={post?.author?.avatar} alt={getUsername(post.author)} sx={{ width: 54, height: 54 }} />
           <p className={classes.username}>{getUsername(post.author)}</p>
         </div>
         <div className="d-flex flex-row-reverse flex-wrap align-items-center">

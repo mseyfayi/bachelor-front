@@ -48,8 +48,8 @@ export interface GitPost extends SimplePost {
   repoTitle: string;
   repoDescription: string;
   repoPicture: string;
-  starsCount: number;
-  forksCount: number;
+  starsCount: string;
+  forksCount: string;
 }
 
 export type Post = GitPost | SimplePost;
