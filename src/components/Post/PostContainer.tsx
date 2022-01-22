@@ -76,7 +76,10 @@ const PostContainer = ({ postId }: Props) => {
           likesCount: 20,
           isLiked: true,
           commentsCount: 12,
-          comments: [],
+          comments: [
+            { id: 'cm1', content: 'من ریدم تو این مطلبی که شما نوشتی', user: { id: 'u2', firstName: 'تقی', lastName: 'تقوی' } },
+            { id: 'cm2', content: 'شیر میخوری؟', user: { id: 'u2', firstName: 'تقی', lastName: 'تقوی' } },
+          ],
           repoUrl: 'https://github.com/vercel/next.js',
           repoPicture: 'https://repository-images.githubusercontent.com/70107786/6532af00-82ea-11ea-9d1a-7fcded8ac5d3',
           repoDescription: 'The React Framework. Contribute to vercel/next.js development by creating an account on GitHub.',

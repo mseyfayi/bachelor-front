@@ -19,7 +19,7 @@ export interface User {
   avatar?: string;
 }
 
-interface Comment {
+export interface Comment {
   id: string;
   user: User;
   content: string;

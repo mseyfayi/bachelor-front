@@ -1,0 +1,27 @@
+@import "common/styles";
+
+.container {
+  padding: 10px 20px;
+  @include bordered;
+  @include rounded(3px);
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    > p {
+      margin: 10px;
+    }
+  }
+
+  > p {
+    margin-right: 50px;
+    margin-bottom: 0;
+    color: #444;
+  }
+}
