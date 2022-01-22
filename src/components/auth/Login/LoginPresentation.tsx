@@ -1,10 +1,10 @@
 import * as yup from 'yup';
 import Form, { Fields } from 'common/components/Form';
-import { Button } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { useRouter } from 'next/router';
 
 export type Data = {
-  behestiEmail: string;
+  beheshtiEmail: string;
   password: string;
 };
 
@@ -17,7 +17,7 @@ const LoginPresentation = ({ mutation, isLoading }: Props) => {
   const router = useRouter();
 
   const fields: Fields<Data> = {
-    behestiEmail: {
+    beheshtiEmail: {
       props: {
         dir: 'ltr',
         label: 'ایمیل بهشتی',
@@ -44,7 +44,16 @@ const LoginPresentation = ({ mutation, isLoading }: Props) => {
       submitLabel="ورود"
       mutation={mutation}
       isLoading={isLoading}
-      footerButton={<Button onClick={() => router.push('/auth/sign-up')}>حساب کاربری ندارید؟</Button>}
+      footerButton={
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'end' }}>
+          <Button sx={{ py: 0 }} onClick={() => router.push('/auth/sign-up')}>
+            حساب کاربری ندارید؟
+          </Button>
+          <Button sx={{ py: 0 }} onClick={() => router.push('/auth/forget-password')}>
+            رمز عبور خود را فراموش کرده‌اید؟
+          </Button>
+        </Box>
+      }
     />
   );
 };
