@@ -45,15 +45,15 @@ export const getGetConfig: GetConfig = createGetConfig(fetchMethods.GET);
 
 export const getDeleteConfig: GetConfig = createGetConfig(fetchMethods.DELETE);
 
-export const fetchApi = async <TData>(url: string, config: Config, isAuthenticated = true): Promise<TData | undefined> => {
+export const fetchApi = async <TData>(url: string, config: Config): Promise<TData | undefined> => {
   let flowError;
   try {
     const res = await fetch(url, config);
     const result = await res.json();
     const data = result?.data;
-    if (res.status !== 200) {
+    if (res.status < 200 && res.status >= 300) {
       flowError = data;
-      if (['EXPIRED_TOKEN', 'UNAUTHORIZED_ACCESS', 'INVALID_TOKEN'].includes(flowError.code) && isAuthenticated) {
+      if (res.status === 401) {
         clearSessionInfo();
         setTimeout(() => window.location.assign('/login'), 2000);
       }
