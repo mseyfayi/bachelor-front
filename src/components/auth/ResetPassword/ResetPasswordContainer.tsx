@@ -12,13 +12,13 @@ const ResetPasswordContainer = ({ email }: Props) => {
   const router = useRouter();
   const mutation = useIMutation<Data, { accessToken: string } | undefined>(
     (data) => fetchApi(getSignInUrl(), getPostConfig({ ...data })),
-    'ورود با شکست مواجه شد',
+    'بازنشانی با شکست مواجه شد',
     {
       onSuccess: (response) => {
-        snackActions.success('ورود با موفقیت انجام شد');
+        snackActions.success('بازنشانی با موفقیت انجام شد');
         setLocalStorage(localStorageKeys.ACCESS_TOKEN, response?.accessToken);
         setTimeout(() => {
-          router.push('/home');
+          router.push('/auth/login');
         }, 1000);
       },
     },
