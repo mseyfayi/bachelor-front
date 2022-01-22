@@ -4,8 +4,8 @@ import * as yup from 'yup';
 export type Data = {
   beheshtiEmail: string;
   otp: number;
-  newPassword: string;
-  newPasswordConfirmation: string;
+  password: string;
+  confirmPassword: string;
 };
 
 type Props = {
@@ -35,7 +35,7 @@ const ResetPasswordPresentation = ({ email, mutate, isLoading }: Props) => {
       },
       validation: yup.string().required('کد تایید اجباری است'),
     },
-    newPassword: {
+    password: {
       props: {
         dir: 'ltr',
         type: 'password',
@@ -43,13 +43,13 @@ const ResetPasswordPresentation = ({ email, mutate, isLoading }: Props) => {
       },
       validation: yup.string().min(8, 'رمز ورود حداقل باید ۸ رقم باشد').required('رمز ورود اجباری است'),
     },
-    newPasswordConfirmation: {
+    confirmPassword: {
       props: {
         dir: 'ltr',
         type: 'password',
         label: 'تکرار رمز عبور',
       },
-      validation: yup.string().oneOf([yup.ref('newPassword'), null], 'تایید رمز عبور با رمز عبور تداخل دارد'),
+      validation: yup.string().oneOf([yup.ref('password'), null], 'تایید رمز عبور با رمز عبور تداخل دارد'),
     },
   };
 
