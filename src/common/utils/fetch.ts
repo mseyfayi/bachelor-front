@@ -50,15 +50,14 @@ export const fetchApi = async <TData>(url: string, config: Config): Promise<TDat
   try {
     const res = await fetch(url, config);
     const result = await res.json();
-    const data = result?.data;
-    if (res.status < 200 && res.status >= 300) {
-      flowError = data;
+    if (res.status < 200 || res.status >= 300) {
+      flowError = result;
       if (res.status === 401) {
         clearSessionInfo();
-        setTimeout(() => window.location.assign('/login'), 2000);
+        setTimeout(() => window.location.assign('/auth/login'), 2000);
       }
     } else {
-      return data;
+      return result;
     }
   } catch (err) {
     console.debug(`Error when fetching api: ${url}`, err);
