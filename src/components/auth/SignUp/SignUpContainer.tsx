@@ -21,7 +21,7 @@ const SignUpContainer = () => {
     },
   );
 
-  return <SignUpPresentation isLoading={mutation.isLoading} mutation={mutation.mutate} />;
+  return <SignUpPresentation isLoading={mutation.isLoading} mutate={mutation.mutate} />;
 };
 
 export default SignUpContainer;

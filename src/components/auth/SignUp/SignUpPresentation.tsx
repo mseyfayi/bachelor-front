@@ -13,11 +13,11 @@ export type Data = {
 };
 
 type Props = {
-  mutation: (data: Data) => void;
+  mutate: (data: Data) => void;
   isLoading: boolean;
 };
 
-const SignUpPresentation = ({ mutation, isLoading }: Props) => {
+const SignUpPresentation = ({ mutate, isLoading }: Props) => {
   const router = useRouter();
 
   const fields: Fields<Data> = {
@@ -78,7 +78,7 @@ const SignUpPresentation = ({ mutation, isLoading }: Props) => {
     <Form
       fields={fields}
       submitLabel="ثبت نام"
-      mutation={mutation}
+      mutation={mutate}
       isLoading={isLoading}
       footerButton={<Button onClick={() => router.push('/auth/login')}>قبلا ثبت نام کرده‌اید؟</Button>}
     />

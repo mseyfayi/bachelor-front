@@ -9,11 +9,11 @@ export type Data = {
 };
 
 type Props = {
-  mutation: (data: Data) => void;
+  mutate: (data: Data) => void;
   isLoading: boolean;
 };
 
-const LoginPresentation = ({ mutation, isLoading }: Props) => {
+const LoginPresentation = ({ mutate, isLoading }: Props) => {
   const router = useRouter();
 
   const fields: Fields<Data> = {
@@ -42,7 +42,7 @@ const LoginPresentation = ({ mutation, isLoading }: Props) => {
     <Form
       fields={fields}
       submitLabel="ورود"
-      mutation={mutation}
+      mutation={mutate}
       isLoading={isLoading}
       footerButton={
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'end' }}>

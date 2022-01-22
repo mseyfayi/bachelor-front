@@ -21,7 +21,7 @@ const LoginContainer = () => {
       },
     },
   );
-  return <LoginPresentation isLoading={mutation.isLoading} mutation={mutation.mutate} />;
+  return <LoginPresentation isLoading={mutation.isLoading} mutate={mutation.mutate} />;
 };
 
 export default LoginContainer;
