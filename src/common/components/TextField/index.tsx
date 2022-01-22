@@ -16,7 +16,15 @@ const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
         {label}
         {required && <Typography sx={{ color: '#f00' }}>*</Typography>}
       </InputLabel>
-      <Box sx={{ width: { xs: 1 }, borderRadius: 2, border: 1, borderColor: '#ccc' }}>
+      <Box
+        sx={{
+          width: { xs: 1 },
+          borderRadius: 2,
+          border: 1,
+          borderColor: '#ccc',
+          backgroundColor: disabled ? '#eee' : undefined,
+        }}
+      >
         <InputBase
           {...props}
           ref={ref}

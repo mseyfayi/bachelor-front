@@ -29,8 +29,11 @@ const ResetPasswordPresentation = ({ email, mutate, isLoading }: Props) => {
       props: {
         dir: 'ltr',
         label: 'کد تایید پیامکی',
+        inputProps: {
+          maxLength: 5,
+        },
       },
-      validation: yup.number().required('کد تایید اجباری است'),
+      validation: yup.string().required('کد تایید اجباری است'),
     },
     newPassword: {
       props: {
