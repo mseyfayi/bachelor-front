@@ -16,6 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const theme = createTheme({
     direction: 'rtl',
+    typography: { fontFamily: 'Vazir', button: { textTransform: 'none' } },
   });
 
   const jss = create({
