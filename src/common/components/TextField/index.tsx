@@ -12,7 +12,7 @@ export interface TextFieldProps extends InputBaseProps {
 const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
   ({ id, label, required, isLoading, disabled, ...props }, ref) => (
     <Box sx={{ my: 2, width: { xs: 1 } }}>
-      <InputLabel htmlFor={id} sx={{ width: 100, display: 'flex' }}>
+      <InputLabel htmlFor={id} sx={{ minWidth: 100, display: 'flex' }}>
         {label}
         {required && <Typography sx={{ color: '#f00' }}>*</Typography>}
       </InputLabel>
