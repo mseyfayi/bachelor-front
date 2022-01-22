@@ -6,17 +6,18 @@ import { useRouter } from 'next/router';
 export type Data = {
   firstName: string;
   lastName: string;
-  behestiEmail: string;
+  beheshtiEmail: string;
+  githubId: string;
   password: string;
   confirmPassword: string;
 };
 
 type Props = {
-  mutation: (data: Data) => void;
+  mutate: (data: Data) => void;
   isLoading: boolean;
 };
 
-const SignUpPresentation = ({ mutation, isLoading }: Props) => {
+const SignUpPresentation = ({ mutate, isLoading }: Props) => {
   const router = useRouter();
 
   const fields: Fields<Data> = {
@@ -24,30 +25,41 @@ const SignUpPresentation = ({ mutation, isLoading }: Props) => {
       validation: yup.string().required('نام اجباری است'),
       props: {
         label: 'نام',
+        required: true,
       },
     },
     lastName: {
       validation: yup.string().required('نام خانوادگی اجباری است'),
       props: {
         label: 'نام خانوادگی',
+        required: true,
       },
     },
-    behestiEmail: {
+    beheshtiEmail: {
       props: {
         dir: 'ltr',
         placeholder: 'example@mail.sbu.ac.ir',
         label: 'ایمیل بهشتی',
+        required: true,
       },
       validation: yup
         .string()
         .matches(/^\S+@(mail\.)?sbu\.ac\.ir$/, 'ایمیل باید تحت دامنه بهشتی باشد')
         .required('ایمیل بهشتی اجباری است'),
     },
+    githubId: {
+      validation: yup.string(),
+      props: {
+        dir: 'ltr',
+        label: 'شناسه گیت‌هاب',
+      },
+    },
     password: {
       props: {
         dir: 'ltr',
         type: 'password',
         label: 'رمز عبور',
+        required: true,
       },
       validation: yup.string().min(8, 'رمز ورود حداقل باید ۸ رقم باشد').required('رمز ورود اجباری است'),
     },
@@ -56,6 +68,7 @@ const SignUpPresentation = ({ mutation, isLoading }: Props) => {
         dir: 'ltr',
         type: 'password',
         label: 'تکرار رمز عبور',
+        required: true,
       },
       validation: yup.string().oneOf([yup.ref('password'), null], 'تایید رمز عبور با رمز عبور تداخل دارد'),
     },
@@ -65,7 +78,7 @@ const SignUpPresentation = ({ mutation, isLoading }: Props) => {
     <Form
       fields={fields}
       submitLabel="ثبت نام"
-      mutation={mutation}
+      mutation={mutate}
       isLoading={isLoading}
       footerButton={<Button onClick={() => router.push('/auth/login')}>قبلا ثبت نام کرده‌اید؟</Button>}
     />

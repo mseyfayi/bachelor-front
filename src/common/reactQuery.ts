@@ -5,14 +5,13 @@ import { snackActions } from 'common/utils/snackbar';
 import { useEffect, useState } from 'react';
 
 interface IError {
-  message: string;
-  code: string | number;
+  error: string;
 }
 
 export const getOnError =
   <TError extends IError>(defaultMessage: string) =>
   (error: TError) =>
-    snackActions.error(error.message || error.code || defaultMessage);
+    snackActions.error(error.error || defaultMessage);
 
 export const useIQuery = <
   TQueryFnData = unknown,

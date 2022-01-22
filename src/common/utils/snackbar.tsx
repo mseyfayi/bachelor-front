@@ -19,7 +19,14 @@ export const SnackbarUtilsConfigurator: React.FC = () => <InnerSnackbarUtilsConf
 interface SnackActionsOptions extends OptionsObject {
   onClick?: () => void;
 }
-export type SnackActions = Record<string, (message: SnackbarMessage, options?: SnackActionsOptions) => void>;
+type SnackAction = (message: SnackbarMessage, options?: SnackActionsOptions) => void;
+export type SnackActions = {
+  success: SnackAction;
+  warning: SnackAction;
+  info: SnackAction;
+  error: SnackAction;
+  toast: SnackAction;
+};
 
 export const snackActions: SnackActions = {
   success(msg, options = {}) {

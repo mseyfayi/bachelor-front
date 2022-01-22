@@ -5,3 +5,4 @@ export function clearSessionInfo() {
 }
 
 export const getLocalStorage = (key: LocalStorageKeys) => JSON.parse(localStorage.getItem(key) || '{}');
+export const setLocalStorage = (key: LocalStorageKeys, data: unknown) => localStorage.setItem(key, JSON.stringify(data));

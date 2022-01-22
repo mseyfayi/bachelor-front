@@ -1,5 +1,5 @@
 export const localStorageKeys = {
-  LOGIN_INFO: 'loginInfo',
+  ACCESS_TOKEN: 'ACCESS_TOKEN',
 };
 export type LocalStorageKeys = typeof localStorageKeys[keyof typeof localStorageKeys];
 
