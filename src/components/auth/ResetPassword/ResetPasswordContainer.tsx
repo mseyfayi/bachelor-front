@@ -1,10 +1,9 @@
 import { useRouter } from 'next/router';
 import { useIMutation } from 'common/reactQuery';
-import { fetchApi, getPostConfig, setLocalStorage, snackActions } from 'common/utils';
+import { fetchApi, getPostConfig, snackActions } from 'common/utils';
 import { getSignInUrl } from 'common/path';
-import { localStorageKeys } from 'common/constants';
-import ResetPasswordPresentation from './ResetPasswordPresentation';
 import type { Data } from './ResetPasswordPresentation';
+import ResetPasswordPresentation from './ResetPasswordPresentation';
 
 type Props = { email: string };
 
@@ -14,9 +13,8 @@ const ResetPasswordContainer = ({ email }: Props) => {
     (data) => fetchApi(getSignInUrl(), getPostConfig({ ...data })),
     'بازنشانی با شکست مواجه شد',
     {
-      onSuccess: (response) => {
+      onSuccess: () => {
         snackActions.success('بازنشانی با موفقیت انجام شد');
-        setLocalStorage(localStorageKeys.ACCESS_TOKEN, response?.accessToken);
         setTimeout(() => {
           router.push('/auth/login');
         }, 1000);
