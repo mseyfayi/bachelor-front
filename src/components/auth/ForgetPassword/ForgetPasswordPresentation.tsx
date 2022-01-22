@@ -32,7 +32,7 @@ const ForgetPasswordPresentation = ({ mutate, isLoading }: Props) => {
   return (
     <Form
       fields={fields}
-      submitLabel="بازنشانی"
+      submitLabel="دریافت کد"
       mutation={mutate}
       isLoading={isLoading}
       footerButton={<Button onClick={() => router.push('/auth/login')}>رمز عبور خود را به خاطر دارید؟</Button>}

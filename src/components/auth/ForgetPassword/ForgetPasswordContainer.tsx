@@ -9,9 +9,11 @@ const ForgetPasswordContainer = () => {
   const router = useRouter();
   const mutation = useIMutation<Data>(
     (data) => fetchApi(getForgetPasswordUrl(), getPostConfig({ ...data })),
-    'ورود با شکست مواجه شد',
+    'دریافت کد با شکست مواجه شد',
     {
       onSuccess: (_, data) => router.push(`/auth/reset-password?email=${data.beheshtiEmail}`),
+      // todo remove
+      onSettled: (_, __, data) => router.push(`/auth/reset-password?email=${data.beheshtiEmail}`),
     },
   );
   return <ForgetPasswordPresentation mutate={mutation.mutate} isLoading={mutation.isLoading} />;
