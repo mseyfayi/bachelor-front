@@ -1,6 +1,7 @@
 import { Post } from 'common/types';
 import { Box, CircularProgress } from '@mui/material';
-import PostSideBar from 'components/Post/PostSideBar';
+import PostSideBar from './PostSideBar';
+import PostContent from './PostContent';
 
 type Props = {
   post?: Post;
@@ -11,9 +12,11 @@ type Props = {
 const PostPresentation = ({ post, isLoading, likeMutation }: Props) =>
   !isLoading && post ? (
     <Box sx={{ p: 4, display: 'flex', flexDirection: ['column', 'row'] }}>
-      <PostSideBar post={post} likeMutation={likeMutation} />
+      <Box sx={{ flex: 1 }}>
+        <PostSideBar post={post} likeMutation={likeMutation} />
+      </Box>
       <Box sx={{ flex: 2 }}>
-        <p>Readme</p> <p>comments</p>
+        <PostContent post={post} />
       </Box>
     </Box>
   ) : (

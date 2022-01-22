@@ -13,7 +13,7 @@ type Props = {
 };
 
 const PostSideBar = ({ post, likeMutation }: Props) => (
-  <Box sx={{ flex: 1, color: '#555' }}>
+  <Box sx={{ color: '#555' }}>
     <Box
       sx={{
         mx: 1,
