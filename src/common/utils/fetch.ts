@@ -14,7 +14,7 @@ type GetConfig = (body?: Record<string | number, unknown>) => Config;
 type GetMultiPartConfig = (body?: FormData) => Config;
 
 function getHeaders(isMultipart = false) {
-  const token = getLocalStorage(localStorageKeys.LOGIN_INFO)?.token;
+  const token = getLocalStorage(localStorageKeys.ACCESS_TOKEN);
   return {
     ...(!isMultipart ? { 'Content-Type': 'application/json' } : {}),
     'X-Authorization': token,
