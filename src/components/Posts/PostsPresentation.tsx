@@ -12,7 +12,7 @@ interface Props {
   isLoading: boolean;
 }
 
-const PostsPresentation = ({ tags, setTags, list = [], isLoading }: Props) => {
+const PostsPresentation = ({ tags, setTags, list = [] }: Props) => {
   const renderItems = () => list.map((post) => <PostItem key={post.id} {...post} />);
 
   return (
