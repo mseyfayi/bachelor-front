@@ -13,20 +13,7 @@ const NewPostContainer = () => {
     isLoading: openGraphLoading,
     isError: openGraphError,
   } = useDelayedQuery<{ openGraph: OpenGraph }>(githubLink, 'github-opengraph', () =>
-    true
-      ? new Promise((res) =>
-          res({
-            openGraph: {
-              image:
-                'https://opengraph.githubassets.com/8216c8d1cb82210a19bf2a29ef321e23e76a2ff5647c8416d1ad7635e92ae8cd/madsams/datamining_course_utils',
-              alt: 'Contribute to madsams/bachelor-front development by creating an account on GitHub.',
-              title: 'madsams/bachelor-front',
-              url: 'https://github.com/madsams/bachelor-front/',
-              description: 'Contribute to madsams/bachelor-front development by creating an account on GitHub.',
-            },
-          }),
-        )
-      : fetchApi(getGithubOGUrl(githubLink), getGetConfig()),
+    fetchApi(getGithubOGUrl(githubLink), getGetConfig()),
   );
 
   return (
