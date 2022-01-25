@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { NextPage } from 'next';
-import ConfirmCode from 'components/ConfirmCode';
+import ConfirmCode from 'components/auth/ConfirmCode';
 import { useRouter } from 'next/router';
 
 const ConfirmCodePage: NextPage = () => {

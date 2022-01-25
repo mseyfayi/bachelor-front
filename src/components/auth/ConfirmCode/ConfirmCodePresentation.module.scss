@@ -1,0 +1,16 @@
+@import "common/styles";
+
+.container{
+  width: 100%;
+  padding: 70px;
+  @include center;
+  flex-direction: column;
+
+  > p {
+    margin-bottom: 40px;
+  }
+
+  .codeInput input {
+    font-family: Vazir, serif;
+  }
+}
