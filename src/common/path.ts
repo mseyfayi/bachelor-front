@@ -21,3 +21,4 @@ export const getForgetPasswordUrl = () => `${backendServer}/v1/auth/forgetPasswo
 export const getResetPasswordUrl = () => `${backendServer}/v1/auth/resetPassword`;
 export const getConfirmCodeUrl = () => `${backendServer}/v1/auth/activate`;
 export const getGetCategoriesUrl = () => `${backendServer}/v1/categories`;
+export const getGetUserUrl = () => `${backendServer}/v1/user?jwt={{JWT_TOKEN}}`;
