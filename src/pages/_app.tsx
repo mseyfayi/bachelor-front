@@ -1,5 +1,7 @@
+import React from 'react';
 import '../styles/globals.scss';
 import type { AppProps } from 'next/app';
+import type { NextComponentType } from 'next';
 import { SnackbarUtilsConfigurator } from 'common/utils';
 import { SnackbarProvider } from 'notistack';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -23,13 +25,17 @@ function MyApp({ Component, pageProps }: AppProps) {
     plugins: [...jssPreset().plugins, rtl()],
   });
 
+  const Layout = (Component as NextComponentType & { Layout?: React.FC }).Layout || React.Fragment;
+
   return (
     <QueryClientProvider client={client} contextSharing>
       <SnackbarProvider anchorOrigin={{ horizontal: 'center', vertical: 'top' }}>
         <ThemeProvider theme={theme}>
           <StylesProvider jss={jss}>
             <SnackbarUtilsConfigurator />
-            <Component {...pageProps} />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
           </StylesProvider>
         </ThemeProvider>
       </SnackbarProvider>
