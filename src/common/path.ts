@@ -20,5 +20,5 @@ export const getSignUpUrl = () => `${backendServer}/v1/auth/signup`;
 export const getForgetPasswordUrl = () => `${backendServer}/v1/auth/forgetPassword`;
 export const getResetPasswordUrl = () => `${backendServer}/v1/auth/resetPassword`;
 export const getConfirmCodeUrl = () => `${backendServer}/v1/auth/activate`;
-export const getGetCategoriesUrl = () => `${backendServer}/v1/categories`;
-export const getGetUserUrl = () => `${backendServer}/v1/user?jwt={{JWT_TOKEN}}`;
+export const getGetCategoriesUrl = () => `${backendServer}/v1/category`;
+export const getGetUserUrl = () => `${backendServer}/v1/user`;

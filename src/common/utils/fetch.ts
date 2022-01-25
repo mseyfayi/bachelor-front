@@ -2,6 +2,7 @@ import { BodyInit } from 'next/dist/server/web/spec-compliant/body';
 import { HeadersInit } from 'next/dist/server/web/spec-compliant/headers';
 import { fetchMethods, FetchMethods, localStorageKeys } from 'common/constants';
 import { clearSessionInfo, getLocalStorage } from 'common/utils/localStorage';
+import { snackActions } from 'common/utils/snackbar';
 
 interface Config {
   method: FetchMethods;
@@ -17,7 +18,7 @@ function getHeaders(isMultipart = false) {
   const token = getLocalStorage(localStorageKeys.ACCESS_TOKEN);
   return {
     ...(!isMultipart ? { 'Content-Type': 'application/json' } : {}),
-    'X-Authorization': token,
+    Authorization: `Bearer ${token}`,
   };
 }
 
@@ -54,6 +55,7 @@ export const fetchApi = async <TData>(url: string, config: Config): Promise<TDat
       flowError = result;
       if (res.status === 401) {
         clearSessionInfo();
+        snackActions.error('نشست کاربری شما به پایان رسید');
         setTimeout(() => window.location.assign('/auth/login'), 2000);
       }
     } else {
