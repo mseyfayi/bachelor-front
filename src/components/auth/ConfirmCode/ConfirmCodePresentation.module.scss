@@ -2,9 +2,9 @@
 
 .container {
   width: 100%;
-  padding: 70px;
   @include center;
   flex-direction: column;
+  padding: 50px 30px !important;
 
   .title {
     margin-bottom: 20px;

@@ -1,8 +1,9 @@
 import Head from 'next/head';
-import { NextPage } from 'next';
 import Login from 'components/auth/Login';
+import type { INextPage } from 'common/types';
+import NotAuthenticatedLayout from 'components/layout/NotAuthenticatedLayout';
 
-const LoginPage: NextPage = () => (
+const LoginPage: INextPage = () => (
   <>
     <Head>
       <title>Login</title>
@@ -10,5 +11,7 @@ const LoginPage: NextPage = () => (
     <Login />
   </>
 );
+
+LoginPage.Layout = NotAuthenticatedLayout;
 
 export default LoginPage;
