@@ -6,8 +6,14 @@
   @include center;
   flex-direction: column;
 
-  > p {
+  .title {
+    margin-bottom: 20px;
+  }
+
+  .desc {
     margin-bottom: 40px;
+    font-size: 14px;
+    color: #777;
   }
 
   .codeInput {

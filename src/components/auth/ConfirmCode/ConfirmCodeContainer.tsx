@@ -17,6 +17,6 @@ const ConfirmCodeContainer = ({ email }: Props) => {
       onSuccess: () => router.push('/auth/login'),
     },
   );
-  return <ConfirmCodePresentation isLoading={mutation.isLoading} mutate={mutation.mutate} />;
+  return <ConfirmCodePresentation email={email} isLoading={mutation.isLoading} mutate={mutation.mutate} />;
 };
 export default ConfirmCodeContainer;
