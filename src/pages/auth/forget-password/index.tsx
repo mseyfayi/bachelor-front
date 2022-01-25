@@ -1,8 +1,9 @@
 import Head from 'next/head';
-import { NextPage } from 'next';
 import ForgetPassword from 'components/auth/ForgetPassword';
+import type { INextPage } from 'common/types';
+import NotAuthenticatedLayout from 'components/layout/NotAuthenticatedLayout';
 
-const ForgetPasswordPage: NextPage = () => (
+const ForgetPasswordPage: INextPage = () => (
   <>
     <Head>
       <title>ForgetPassword</title>
@@ -10,5 +11,7 @@ const ForgetPasswordPage: NextPage = () => (
     <ForgetPassword />
   </>
 );
+
+ForgetPasswordPage.Layout = NotAuthenticatedLayout;
 
 export default ForgetPasswordPage;

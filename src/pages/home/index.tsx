@@ -1,8 +1,9 @@
 import Head from 'next/head';
-import { NextPage } from 'next';
 import Posts from 'components/Posts';
+import type { INextPage } from 'common/types';
+import AuthenticatedLayout from 'components/layout/AuthenticatedLayout';
 
-const HomePage: NextPage = () => (
+const HomePage: INextPage = () => (
   <>
     <Head>
       <title>Home</title>
@@ -10,5 +11,7 @@ const HomePage: NextPage = () => (
     <Posts />
   </>
 );
+
+HomePage.Layout = AuthenticatedLayout;
 
 export default HomePage;

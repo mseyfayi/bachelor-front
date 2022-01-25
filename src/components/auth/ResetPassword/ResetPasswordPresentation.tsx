@@ -53,7 +53,7 @@ const ResetPasswordPresentation = ({ email, mutate, isLoading }: Props) => {
     },
   };
 
-  return <Form fields={fields} submitLabel="بازنشانی" mutation={mutate} isLoading={isLoading} />;
+  return <Form title="بازیابی رمز عبور" fields={fields} submitLabel="بازنشانی" mutation={mutate} isLoading={isLoading} />;
 };
 
 export default ResetPasswordPresentation;

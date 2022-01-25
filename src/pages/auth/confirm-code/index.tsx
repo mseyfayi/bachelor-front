@@ -1,9 +1,10 @@
 import Head from 'next/head';
-import { NextPage } from 'next';
 import ConfirmCode from 'components/auth/ConfirmCode';
 import { useRouter } from 'next/router';
+import type { INextPage } from 'common/types';
+import NotAuthenticatedLayout from 'components/layout/NotAuthenticatedLayout';
 
-const ConfirmCodePage: NextPage = () => {
+const ConfirmCodePage: INextPage = () => {
   const router = useRouter();
   const { email } = router.query;
   return (
@@ -15,5 +16,7 @@ const ConfirmCodePage: NextPage = () => {
     </>
   );
 };
+
+ConfirmCodePage.Layout = NotAuthenticatedLayout;
 
 export default ConfirmCodePage;

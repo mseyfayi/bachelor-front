@@ -1,0 +1,28 @@
+@import "common/styles";
+
+.header {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  height: 60px;
+  background: #eee;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  @include shadowed;
+
+  *:first-child {
+    margin-left: 10px !important;
+  }
+
+  h1 {
+    color: #444;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .username {
+      margin: 0 10px;
+  }
+}

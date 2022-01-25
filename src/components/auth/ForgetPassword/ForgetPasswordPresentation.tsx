@@ -31,6 +31,7 @@ const ForgetPasswordPresentation = ({ mutate, isLoading }: Props) => {
 
   return (
     <Form
+      title="فراموشی رمز عبور"
       fields={fields}
       submitLabel="دریافت کد"
       mutation={mutate}

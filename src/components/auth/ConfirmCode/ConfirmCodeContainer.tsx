@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useIMutation } from 'common/reactQuery';
 import { fetchApi, getPostConfig } from 'common/utils';
-import { getResetPasswordUrl } from 'common/path';
+import { getConfirmCodeUrl } from 'common/path';
 import ConfirmCodePresentation from './ConfirmCodePresentation';
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 const ConfirmCodeContainer = ({ email }: Props) => {
   const router = useRouter();
   const mutation = useIMutation<string>(
-    (code) => fetchApi(getResetPasswordUrl(), getPostConfig({ otp: code, email })),
+    (code) => fetchApi(getConfirmCodeUrl(), getPostConfig({ otp: code, beheshtiEmail: email })),
     'تایید با شکست مواجه شد',
     {
       onSuccess: () => router.push('/auth/login'),

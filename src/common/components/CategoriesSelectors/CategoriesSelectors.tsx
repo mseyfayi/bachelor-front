@@ -13,28 +13,7 @@ type Props = {
 
 const CategoriesSelectors = ({ tags, setTags }: Props) => {
   const { data: categories, isLoading: categoriesLoading } = useIQuery<Array<Category> | undefined>('categories', () =>
-    true
-      ? [
-          {
-            id: 'course',
-            title: 'درس',
-            items: [
-              { id: 'Embedded', name: 'امبدد', color: '#f00' },
-              { id: 'Simulation', name: 'شبیه‌سازی', color: '#f0f' },
-              { id: 'ًRobo', name: 'رباتیکز', color: '#00f' },
-            ],
-          },
-          {
-            id: 'prof',
-            title: 'استاد',
-            items: [
-              { id: 'Attar', name: 'عطار', color: '#dd0' },
-              { id: 'Safayi', name: 'صفایی', color: '#c6f' },
-              { id: 'Salimi', name: 'سلیمی', color: '#1cf' },
-            ],
-          },
-        ]
-      : fetchApi(getGetCategoriesUrl(), getGetConfig()),
+    fetchApi(getGetCategoriesUrl(), getGetConfig()),
   );
 
   useEffect(() => {

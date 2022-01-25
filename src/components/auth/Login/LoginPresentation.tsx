@@ -40,6 +40,7 @@ const LoginPresentation = ({ mutate, isLoading }: Props) => {
 
   return (
     <Form
+      title="ورود"
       fields={fields}
       submitLabel="ورود"
       mutation={mutate}

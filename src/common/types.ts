@@ -1,3 +1,6 @@
+import type { NextPage } from 'next/types';
+import React from 'react';
+
 export interface Tag {
   id: string;
   name: string;
@@ -62,4 +65,5 @@ export interface OpenGraph {
   description: string;
 }
 
+export type INextPage<P = unknown, IP = P> = NextPage<P, IP> & { Layout?: React.FC };
 export const isGitPost = (post: Post): post is GitPost => (post as GitPost).repoUrl !== undefined;

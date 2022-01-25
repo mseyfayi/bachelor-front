@@ -9,7 +9,7 @@ const PostsContainer = () => {
   const [tags, setTags] = useState<Array<Tag['id']>>([]);
   // todo should be infinite loop
   const { data: list, isLoading } = useIQuery<Array<Post> | undefined>(
-    ['timeline', tags],
+    ['posts', tags],
     () => fetchApi<Array<Post>>(getGetPostsUrl(), getGetConfig()),
     'خطایی در هنگام گرفتن لیست رخ داده است',
   );
