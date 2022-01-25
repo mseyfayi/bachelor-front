@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { Button, FormError, TextField } from 'common/components';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -14,6 +14,7 @@ export type Fields<Data> = {
   };
 };
 type Props<Data> = {
+  title?: string;
   fields: Fields<Data>;
   submitLabel: string;
   mutation: (data: Data) => void;
@@ -21,7 +22,14 @@ type Props<Data> = {
   footerButton?: React.ReactNode;
 };
 
-const Form = <Data extends Record<string, unknown>>({ fields, submitLabel, mutation, isLoading, footerButton }: Props<Data>) => {
+const Form = <Data extends Record<string, unknown>>({
+  title,
+  fields,
+  submitLabel,
+  mutation,
+  isLoading,
+  footerButton,
+}: Props<Data>) => {
   const {
     register,
     handleSubmit,
@@ -33,7 +41,10 @@ const Form = <Data extends Record<string, unknown>>({ fields, submitLabel, mutat
   });
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <Box>
+      <Typography fontWeight={700} fontSize={18}>
+        {title}
+      </Typography>
       <Box sx={{ width: 300 }}>
         {Object.keys(fields).map((name) => (
           <React.Fragment key={name}>

@@ -77,6 +77,7 @@ const SignUpPresentation = ({ mutate, isLoading }: Props) => {
   return (
     <Form
       fields={fields}
+      title="ثبت نام"
       submitLabel="ثبت نام"
       mutation={mutate}
       isLoading={isLoading}
