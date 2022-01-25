@@ -33,8 +33,8 @@ const Form = <Data extends Record<string, unknown>>({ fields, submitLabel, mutat
   });
 
   return (
-    <Box sx={{ pt: 5, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <Box sx={{ pt: 4, width: 300 }}>
+    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <Box sx={{ width: 300 }}>
         {Object.keys(fields).map((name) => (
           <React.Fragment key={name}>
             <TextField id={name} {...fields[name].props} {...register(name as FieldPath<Data>)} />

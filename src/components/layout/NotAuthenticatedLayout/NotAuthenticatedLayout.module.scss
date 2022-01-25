@@ -1,0 +1,14 @@
+@import "common/styles";
+
+.container {
+  @include center;
+
+  > div {
+    @include bordered(1px, #bbb);
+    @include rounded(8px);
+    background: #f0f0f0;
+    padding: 20px;
+    margin: 40px;
+    width: fit-content;
+  }
+}

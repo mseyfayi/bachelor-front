@@ -1,4 +1,4 @@
-const backendServer = 'http://koooleposhti.ir:5000/api';
+const backendServer = 'http://api.koooleposhti.ir/api';
 
 const getQueriedUrl = (url: string, parameters: { [key: string]: unknown }): string => {
   const getDelimiter = (currentUrl: string) => (currentUrl.includes('?') ? '&' : '?');
@@ -19,4 +19,5 @@ export const getSignInUrl = () => `${backendServer}/v1/auth/signin`;
 export const getSignUpUrl = () => `${backendServer}/v1/auth/signup`;
 export const getForgetPasswordUrl = () => `${backendServer}/v1/auth/forgetPassword`;
 export const getResetPasswordUrl = () => `${backendServer}/v1/auth/resetPassword`;
+export const getConfirmCodeUrl = () => `${backendServer}/v1/auth/activate`;
 export const getGetCategoriesUrl = () => `${backendServer}/v1/categories`;
