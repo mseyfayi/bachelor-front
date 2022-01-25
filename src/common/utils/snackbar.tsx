@@ -46,5 +46,8 @@ export const snackActions: SnackActions = {
       onClick: () => useSnackbarRef.closeSnackbar(key),
       ...options,
     });
+    setTimeout(() => {
+      useSnackbarRef.closeSnackbar(key);
+    }, 2000);
   },
 };

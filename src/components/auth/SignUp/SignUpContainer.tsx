@@ -11,11 +11,10 @@ const SignUpContainer = () => {
     (data) => fetchApi(getSignUpUrl(), getPostConfig({ ...data, confirmPassword: undefined })),
     'ثبت نام با شکست مواجه شد',
     {
-      onSuccess: () => {
+      onSuccess: (_, data) => {
         snackActions.success('ثبت نام با موفقیت انجام شد');
         setTimeout(() => {
-          // todo otp
-          router.push('/auth/login');
+          router.push(`/auth/confirm-code?email=${data.beheshtiEmail}`);
         }, 1000);
       },
     },

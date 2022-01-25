@@ -28,12 +28,12 @@ const ResetPasswordPresentation = ({ email, mutate, isLoading }: Props) => {
     otp: {
       props: {
         dir: 'ltr',
-        label: 'کد تایید پیامکی',
+        label: 'کد تایید',
         inputProps: {
           maxLength: 5,
         },
       },
-      validation: yup.string().required('کد تایید اجباری است'),
+      validation: yup.string().required('کد تایید ایمیل شده اجباری است'),
     },
     password: {
       props: {
