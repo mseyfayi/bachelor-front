@@ -10,16 +10,7 @@ type Props = {
 const ConfirmCodePresentation = ({ mutate, isLoading }: Props) => (
   <Box className={classes.container}>
     <Typography>کد تایید ایمیل شده را وارد کنید</Typography>
-    <Box dir="ltr">
-      <CodeInput
-        type="text"
-        className={classes.codeInput}
-        fields={5}
-        onComplete={(code) => mutate(code)}
-        loading={isLoading}
-        autoFocus
-      />
-    </Box>
+    <CodeInput type="number" className={classes.codeInput} fields={5} onComplete={mutate} loading={isLoading} autoFocus />
   </Box>
 );
 

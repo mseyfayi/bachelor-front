@@ -1,6 +1,6 @@
 @import "common/styles";
 
-.container{
+.container {
   width: 100%;
   padding: 70px;
   @include center;
@@ -10,7 +10,11 @@
     margin-bottom: 40px;
   }
 
-  .codeInput input {
-    font-family: Vazir, serif;
+  .codeInput {
+    direction: ltr;
+
+    input {
+      font-family: Vazir, serif;
+    }
   }
 }
