@@ -7,7 +7,7 @@ import type { User } from 'common/types';
 import style from './AuthenticatedLayout.module.scss';
 import Header from '../Header';
 
-const NotAuthenticatedLayout: React.FC = ({ children }) => {
+const AuthenticatedLayout: React.FC = ({ children }) => {
   const { data: user } = useIQuery<User | undefined>('user', () => fetchApi(getGetUserUrl(), getGetConfig()));
   return (
     <Box className={style.container}>
@@ -20,4 +20,4 @@ const NotAuthenticatedLayout: React.FC = ({ children }) => {
   );
 };
 
-export default NotAuthenticatedLayout;
+export default AuthenticatedLayout;

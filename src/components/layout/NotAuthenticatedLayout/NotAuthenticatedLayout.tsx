@@ -1,15 +1,20 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
+import { classnames } from 'common/utils';
+import Footer from '../Footer';
 import Header from '../Header';
 import style from './NotAuthenticatedLayout.module.scss';
 
-const NotAuthenticatedLayout: React.FC = ({ children }) => (
-  <Box className={style.container}>
+type Props = {
+  children: React.ReactNode;
+  className?: string;
+};
+
+const NotAuthenticatedLayout = ({ children, className }: Props) => (
+  <Box className={classnames(style.container, className)}>
     <Header />
     {children}
-    <footer>
-      <Typography>&copy; کوله پشتی ۱۴۰۰-</Typography>
-    </footer>
+    <Footer />
   </Box>
 );
 
