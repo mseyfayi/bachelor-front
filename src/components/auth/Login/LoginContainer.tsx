@@ -13,12 +13,14 @@ const LoginContainer = () => {
     'ورود با شکست مواجه شد',
     {
       onSuccess: (response) => {
-        snackActions.success('ورود با موفقیت انجام شد');
-        setLocalStorage(localStorageKeys.ACCESS_TOKEN, response?.accessToken);
-        setCookieObject(localStorageKeys.ACCESS_TOKEN, response?.accessToken);
-        setTimeout(() => {
-          router.push('/home');
-        }, 1000);
+        if (response) {
+          snackActions.success('ورود با موفقیت انجام شد');
+          setLocalStorage(localStorageKeys.ACCESS_TOKEN, response?.accessToken);
+          setCookieObject(localStorageKeys.ACCESS_TOKEN, response);
+          setTimeout(() => {
+            router.push('/home');
+          }, 1000);
+        }
       },
     },
   );
