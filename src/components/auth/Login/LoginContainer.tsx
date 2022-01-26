@@ -1,5 +1,5 @@
 import { useIMutation } from 'common/reactQuery';
-import { fetchApi, getPostConfig, setLocalStorage, snackActions } from 'common/utils';
+import { fetchApi, getPostConfig, setCookieObject, setLocalStorage, snackActions } from 'common/utils';
 import { getSignInUrl } from 'common/path';
 import { localStorageKeys } from 'common/constants';
 import { useRouter } from 'next/router';
@@ -15,6 +15,7 @@ const LoginContainer = () => {
       onSuccess: (response) => {
         snackActions.success('ورود با موفقیت انجام شد');
         setLocalStorage(localStorageKeys.ACCESS_TOKEN, response?.accessToken);
+        setCookieObject(localStorageKeys.ACCESS_TOKEN, response?.accessToken);
         setTimeout(() => {
           router.push('/home');
         }, 1000);
