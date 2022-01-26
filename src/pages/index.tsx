@@ -14,7 +14,8 @@ export default Home;
 export function getServerSideProps(context: GetServerSidePropsContext) {
   const { req } = context;
   const { cookies } = req;
-  if (!cookies || !cookies.loginInfo) {
+  console.log('mohammad cookies', cookies);
+  if (!cookies || !cookies.ACCESS_TOKEN) {
     return {
       redirect: {
         destination: '/auth/login',

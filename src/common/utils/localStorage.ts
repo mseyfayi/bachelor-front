@@ -1,7 +1,9 @@
-import { LocalStorageKeys } from 'common/constants';
+import { localStorageKeys, LocalStorageKeys } from 'common/constants';
+import { eraseCookie } from 'common/utils';
 
 export function clearSessionInfo() {
-  localStorage.removeItem('loginInfo');
+  localStorage.removeItem(localStorageKeys.ACCESS_TOKEN);
+  eraseCookie(localStorageKeys.ACCESS_TOKEN);
 }
 
 export const getLocalStorage = (key: LocalStorageKeys) => JSON.parse(localStorage.getItem(key) || '{}');
