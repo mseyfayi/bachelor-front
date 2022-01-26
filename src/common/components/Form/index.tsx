@@ -42,7 +42,7 @@ const Form = <Data extends Record<string, unknown>>({
 
   return (
     <Box>
-      <Typography fontWeight={700} fontSize={18}>
+      <Typography fontWeight={700} fontSize={18} width="100%">
         {title}
       </Typography>
       <Box sx={{ width: 300 }}>
