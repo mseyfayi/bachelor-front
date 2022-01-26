@@ -51,17 +51,17 @@ const Chronology: React.FC<Props> = ({ elements, ...restProps }) => {
         event.style.left = '0';
         event.style.top = `${sides.a}px`;
         sides.a += outerHeight(event);
-        event.className = classnames(event.className, classes.eventLeft);
+        event.className = classnames(event.className, classes.eventLeft) as string;
       } else {
         event.style.right = '0';
         event.style.top = `${sides.b}px`;
         sides.b += outerHeight(event);
-        event.className = classnames(event.className, classes.eventRight);
+        event.className = classnames(event.className, classes.eventRight) as string;
       }
       const marker = markers[i];
       if (marker) {
         const className = left ? classes.markerLeft : classes.markerRight;
-        marker.className = classnames(marker.className, className);
+        marker.className = classnames(marker.className, className) as string;
 
         marker.style.position = 'absolute';
         const markerLeft = (containerWidth - marker.offsetWidth) / containerWidth / 2;
