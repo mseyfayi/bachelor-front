@@ -65,5 +65,7 @@ export interface OpenGraph {
   description: string;
 }
 
-export type INextPage<P = unknown, IP = P> = NextPage<P, IP> & { Layout?: React.FC };
+export type INextPage<P = unknown, IP = P, D extends Record<string, unknown> = Record<string, unknown>> = NextPage<P, IP> & {
+  Layout?: React.FC<D>;
+};
 export const isGitPost = (post: Post): post is GitPost => (post as GitPost).repoUrl !== undefined;

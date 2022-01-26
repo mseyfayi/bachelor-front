@@ -6,11 +6,11 @@ import Header from '../Header';
 import style from './NotAuthenticatedLayout.module.scss';
 
 type Props = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
 };
 
-const NotAuthenticatedLayout = ({ children, className }: Props) => (
+const NotAuthenticatedLayout: React.FC<Props> = ({ children, className }) => (
   <Box className={classnames(style.container, className)}>
     <Header />
     {children}
