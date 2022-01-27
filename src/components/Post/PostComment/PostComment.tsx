@@ -10,8 +10,8 @@ type Props = {
 const PostComment = ({ comment }: Props) => (
   <div className={classes.container}>
     <div className={classes.user}>
-      <Avatar src={comment.user?.avatar} alt={getUsername(comment.user)} sx={{ width: 40, height: 40 }} />
-      <p>{getUsername(comment.user)}</p>
+      <Avatar src={comment.author?.avatar} alt={getUsername(comment.author)} sx={{ width: 40, height: 40 }} />
+      <p>{getUsername(comment.author)}</p>
     </div>
     <p>{comment.content}</p>
   </div>

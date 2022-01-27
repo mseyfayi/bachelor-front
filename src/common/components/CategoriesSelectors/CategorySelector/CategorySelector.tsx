@@ -22,7 +22,7 @@ function CategorySelector({ category, selectedTagId, selectTag }: Props) {
       <MenuItem value="">
         <em>{category.title}</em>
       </MenuItem>
-      {category.items?.map((tag) => (
+      {category.tags?.map((tag) => (
         <MenuItem key={tag.id} value={tag.id} sx={{ color: `${tag.color}55` }}>
           {tag.name}
         </MenuItem>
