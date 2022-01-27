@@ -26,7 +26,7 @@ const PostItem = (post: Props) => {
       </div>
       <Box>
         <ChatBubbleOutlineIcon />
-        <p>{post.comments?.length}</p>
+        <p>{post.commentsCount}</p>
       </Box>
     </div>
   );

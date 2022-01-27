@@ -10,13 +10,13 @@ export interface Tag {
 export interface Category {
   id: string;
   title: string;
-  items: Array<Tag>;
+  tags: Array<Tag>;
 }
 
 export interface User {
   id: string;
   githubId?: string;
-  beheshtiId?: string;
+  beheshtiEmail?: string;
   firstName?: string;
   lastName?: string;
   avatar?: string;
@@ -24,7 +24,7 @@ export interface User {
 
 export interface Comment {
   id: string;
-  user: User;
+  author: User;
   content: string;
 }
 
