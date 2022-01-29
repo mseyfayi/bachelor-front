@@ -6,7 +6,7 @@
 
   .formSection {
     position: absolute;
-    right: calc(20vw - 200px);
+    left: calc(80vw - 250px);
     height: 100%;
     @include center;
 
@@ -26,7 +26,7 @@
   }
 
   .contextSection {
-    width: 80vw;
+    width: 100vw;
     height: 100%;
     background-image: linear-gradient(to right, #000000F0, #00000000), url('sbuslide111.jpeg');
     background-size: cover;
