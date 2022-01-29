@@ -25,10 +25,7 @@ const LoginPresentation = ({ mutate, isLoading }: Props) => {
         label: 'ایمیل بهشتی',
         placeholder: 'example@mail.sbu.ac.ir',
       },
-      validation: yup
-        .string()
-        .matches(/^\S+@(mail\.)?sbu\.ac\.ir$/, 'ایمیل باید تحت دامنه بهشتی باشد')
-        .required('ایمیل بهشتی اجباری است'),
+      validation: yup.string().required('ایمیل بهشتی اجباری است'),
     },
     password: {
       props: {
