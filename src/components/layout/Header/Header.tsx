@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Button, Avatar } from '@mui/material';
+import { Avatar, Button, Typography } from '@mui/material';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import type { User } from 'common/types';
@@ -15,10 +15,12 @@ const Header = ({ profile }: Props) => {
   const router = useRouter();
   return (
     <header className={style.header}>
-      <Button onClick={() => router.push('/')}>
-        <Image src="/kooleposhti.svg" width={40} height={40} />
-        <Typography component="h1">کوله پشتی</Typography>
-      </Button>
+      <div>
+        <Button onClick={() => router.push('/')}>
+          <Image src="/kooleposhti.svg" width={40} height={40} />
+          <Typography component="h1">کوله پشتی</Typography>
+        </Button>
+      </div>
       {profile && (
         <div className="d-flex flex-row align-items-center">
           <p className={classes.username}>{getUsername(profile)}</p>
