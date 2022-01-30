@@ -4,6 +4,7 @@
   height: 30px;
   background-color: #eeeeeea0;
   @include center;
+  margin: 0 -10px;
 
   > p {
     font-size: 12px;
