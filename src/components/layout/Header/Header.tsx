@@ -22,7 +22,7 @@ const Header = ({ profile }: Props) => {
       {profile && (
         <div className="d-flex flex-row align-items-center">
           <p className={classes.username}>{getUsername(profile)}</p>
-          <Avatar src={profile?.avatar} alt={getUsername(profile)} sx={{ width: 54, height: 54 }} />
+          <Avatar src={profile?.avatar} alt={getUsername(profile)} sx={{ width: 50, height: 50 }} />
         </div>
       )}
     </header>

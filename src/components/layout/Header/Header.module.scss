@@ -10,9 +10,10 @@
   padding: 10px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   @include shadowed;
 
-  *:first-child {
+  > * > *:first-child {
     margin-left: 10px !important;
   }
 
@@ -23,6 +24,6 @@
   }
 
   .username {
-      margin: 0 10px;
+    margin: 0 10px;
   }
 }
