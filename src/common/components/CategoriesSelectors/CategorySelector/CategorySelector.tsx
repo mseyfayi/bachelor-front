@@ -9,26 +9,24 @@ type Props = {
   selectTag: (id: Tag['id']) => void;
 };
 
-function CategorySelector({ category, selectedTagId, selectTag }: Props) {
-  return (
-    <Select
-      displayEmpty
-      className={classes.container}
-      sx={{ m: 1, borderBottom: 0, width: 100 }}
-      variant="outlined"
-      value={selectedTagId || ''}
-      onChange={(e) => selectTag(e.target.value)}
-    >
-      <MenuItem value="">
-        <em>{category.title}</em>
+const CategorySelector = ({ category, selectedTagId, selectTag }: Props) => (
+  <Select
+    displayEmpty
+    className={classes.container}
+    sx={{ m: 1, borderBottom: 0, width: 100 }}
+    variant="outlined"
+    value={selectedTagId || ''}
+    onChange={(e) => selectTag(e.target.value)}
+  >
+    <MenuItem value="">
+      <em>{category.title}</em>
+    </MenuItem>
+    {category.tags?.map((tag) => (
+      <MenuItem key={tag.id} value={tag.id} sx={{ color: `${tag.color}55` }}>
+        {tag.name}
       </MenuItem>
-      {category.tags?.map((tag) => (
-        <MenuItem key={tag.id} value={tag.id} sx={{ color: `${tag.color}55` }}>
-          {tag.name}
-        </MenuItem>
-      ))}
-    </Select>
-  );
-}
+    ))}
+  </Select>
+);
 
 export default CategorySelector;
