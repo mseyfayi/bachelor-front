@@ -39,7 +39,11 @@ export const useIMutation = <TVariables = void, TData = unknown, TError extends 
     ...options,
   });
 
-export const useDelayedQuery = <TData>(query: string, queryKey: string, queryFn: MutationFunction<TData | undefined, void>) => {
+export const useDelayedQuery = <TData>(
+  query: string | undefined | null,
+  queryKey: string,
+  queryFn: MutationFunction<TData | undefined, void>,
+) => {
   const [data, setData] = useState<TData | undefined | null>(null);
   const [timeoutInstance, setTimeoutInstance] = useState<ReturnType<typeof setTimeout> | null>(null);
 
