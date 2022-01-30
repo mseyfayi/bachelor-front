@@ -4,8 +4,7 @@
   @include center;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
-  padding: 60px 10px 10px 0;
+  padding: 60px 10px 0;
 
   > div {
     @include bordered(1px, #bbb);

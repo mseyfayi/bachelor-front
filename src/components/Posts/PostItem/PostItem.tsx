@@ -22,11 +22,11 @@ const PostItem = (post: Props) => {
     <div className={classnames('d-flex flex-row justify-content-between', classes.footer)}>
       <div>
         <Like isLiked={post.isLiked} isLoading={likeMutation.isLoading} likePost={likeMutation.mutate} />
-        <p>{post.likesCount}</p>
+        <p>{post.likes}</p>
       </div>
       <Box>
         <ChatBubbleOutlineIcon />
-        <p>{post.commentsCount}</p>
+        <p>{post.comments?.length}</p>
       </Box>
     </div>
   );

@@ -39,9 +39,8 @@ export interface SimplePost {
   tags: Array<Tag> | Array<Tag['id']>;
   author: Partial<User>;
   content: string;
-  likesCount: number;
+  likes: number;
   isLiked: boolean;
-  commentsCount?: number;
   comments?: Array<Comment>;
   file?: PostFile;
 }

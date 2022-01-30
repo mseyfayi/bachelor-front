@@ -24,6 +24,7 @@ const NewPostContainer = () => {
       onSuccess: async () => {
         await client.invalidateQueries('posts');
         setOpen(false);
+        setGithubLink('');
       },
     },
   );
@@ -40,7 +41,7 @@ const NewPostContainer = () => {
       open={open}
       setOpen={setOpen}
       isLoading={createPostMutation.isLoading}
-      create={createPostMutation.mutate}
+      create={createPostMutation.mutateAsync}
       githubLink={githubLink}
       setGithubLink={setGithubLink}
       openGraph={openGraphData?.openGraph}

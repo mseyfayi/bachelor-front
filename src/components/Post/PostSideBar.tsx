@@ -106,7 +106,7 @@ const PostSideBar = ({ post, likeMutation }: Props) => (
     >
       <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         <Like isLiked={post.isLiked} isLoading={likeMutation.isLoading} likePost={likeMutation.mutate} fontSize="small" />
-        <Typography fontSize={13}>{post.likesCount}</Typography>
+        <Typography fontSize={13}>{post.likes}</Typography>
       </Box>
       <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         <ChatBubbleOutlineIcon fontSize="small" />

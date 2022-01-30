@@ -8,7 +8,7 @@ import classes from './NewPostPresentation.module.scss';
 type Props = {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
-  create: (post: Partial<Post>) => void;
+  create: (post: Partial<Post>) => Promise<unknown>;
   isLoading: boolean;
   githubLink: string;
   setGithubLink: (val: string) => void;
@@ -74,7 +74,16 @@ const NewPostPresentation = ({
           <CategoriesSelectors tags={tags} setTags={setTags} />
         </div>
         <footer className={classes.dialogAction}>
-          <Button onClick={() => create({ repoUrl: githubLink, content, tags })} isLoading={isLoading}>
+          <Button
+            onClick={() => {
+              create({ repoUrl: githubLink, content, tags }).finally(() => {
+                setContent('');
+                setGithubProject(false);
+                setTags([]);
+              });
+            }}
+            isLoading={isLoading}
+          >
             ذخیره
           </Button>
           <Button onClick={() => setOpen(false)}>انصراف</Button>
