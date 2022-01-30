@@ -19,7 +19,9 @@ const Github = () => (
   <div className={classes.container}>
     <Typography component="h2">مخزن‌های متن باز پروژه</Typography>
     {repositories.map(({ link, title }) => (
-      <a href={link}>{title}</a>
+      <a target="_blank" href={link}>
+        {title}
+      </a>
     ))}
   </div>
 );
