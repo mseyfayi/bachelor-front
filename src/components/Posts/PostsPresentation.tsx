@@ -8,12 +8,12 @@ import NewPost from './NewPost';
 interface Props {
   tags: Array<Tag['id']>;
   setTags: Dispatch<SetStateAction<Array<Tag['id']>>>;
-  list: Array<Post> | undefined;
+  posts: Array<Post> | undefined;
   isLoading: boolean;
 }
 
-const PostsPresentation = ({ tags, setTags, list = [] }: Props) => {
-  const renderItems = () => list.map((post) => <PostItem key={post.id} {...post} />);
+const PostsPresentation = ({ tags, setTags, posts = [] }: Props) => {
+  const renderItems = () => posts.map((post) => <PostItem key={post.id} {...post} />);
 
   return (
     <div className={classes.container}>
