@@ -62,7 +62,9 @@ const NewPostPresentation = ({
           )}
           <MarkDown value={content} onChange={setContent} />
         </DialogContent>
-        <CategoriesSelectors tags={tags} setTags={setTags} />
+        <div className={classes.categorySelectors}>
+          <CategoriesSelectors tags={tags} setTags={setTags} />
+        </div>
         <footer className={classes.dialogAction}>
           <Button onClick={() => create({ repoUrl: githubLink, content, tags })} isLoading={isLoading}>
             ذخیره
