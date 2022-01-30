@@ -50,9 +50,10 @@ export interface GitPost extends SimplePost {
   repoUrl: string;
   repoTitle: string;
   repoDescription: string;
-  repoPicture: string;
-  starsCount: string;
-  forksCount: string;
+  image: string;
+  'image:alt': string;
+  stars: string;
+  forks: string;
 }
 
 export type Post = GitPost | SimplePost;

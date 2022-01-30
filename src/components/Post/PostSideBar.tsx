@@ -61,11 +61,11 @@ const PostSideBar = ({ post, likeMutation }: Props) => (
         >
           <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
             <StarIcon />
-            <Typography fontSize={13}>{post.starsCount}</Typography>
+            <Typography fontSize={13}>{post.stars}</Typography>
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
             <ForkRightIcon />
-            <Typography fontSize={13}>{post.forksCount}</Typography>
+            <Typography fontSize={13}>{post.forks}</Typography>
           </Box>
         </Box>
       </Box>

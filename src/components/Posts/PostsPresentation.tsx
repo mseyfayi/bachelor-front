@@ -1,6 +1,7 @@
 import { Post, Tag } from 'common/types';
 import { Dispatch, SetStateAction } from 'react';
 import { CategoriesSelectors, Chronology } from 'common/components';
+import { CircularProgress } from '@mui/material';
 import PostItem from './PostItem';
 import classes from './PostsPresentation.module.scss';
 import NewPost from './NewPost';
@@ -12,13 +13,13 @@ interface Props {
   isLoading: boolean;
 }
 
-const PostsPresentation = ({ tags, setTags, posts = [] }: Props) => {
+const PostsPresentation = ({ tags, setTags, posts = [], isLoading }: Props) => {
   const renderItems = () => posts.map((post) => <PostItem key={post.id} {...post} />);
 
   return (
     <div className={classes.container}>
       <CategoriesSelectors tags={tags} setTags={setTags} />
-      <Chronology elements={[<NewPost />, ...renderItems()]} />
+      {isLoading ? <CircularProgress /> : <Chronology elements={[<NewPost />, ...renderItems()]} />}
     </div>
   );
 };
