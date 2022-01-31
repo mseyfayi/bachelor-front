@@ -39,9 +39,8 @@ export interface SimplePost {
   tags: Array<Tag> | Array<Tag['id']>;
   author: Partial<User>;
   content: string;
-  likesCount: number;
+  likes: number;
   isLiked: boolean;
-  commentsCount?: number;
   comments?: Array<Comment>;
   file?: PostFile;
 }
@@ -50,9 +49,11 @@ export interface GitPost extends SimplePost {
   repoUrl: string;
   repoTitle: string;
   repoDescription: string;
-  repoPicture: string;
-  starsCount: string;
-  forksCount: string;
+  image: string;
+  'image:alt': string;
+  stars: string;
+  forks: string;
+  readmeContent: string;
 }
 
 export type Post = GitPost | SimplePost;

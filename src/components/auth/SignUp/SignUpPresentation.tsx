@@ -42,10 +42,7 @@ const SignUpPresentation = ({ mutate, isLoading }: Props) => {
         label: 'ایمیل بهشتی',
         required: true,
       },
-      validation: yup
-        .string()
-        .matches(/^\S+@(mail\.)?sbu\.ac\.ir$/, 'ایمیل باید تحت دامنه بهشتی باشد')
-        .required('ایمیل بهشتی اجباری است'),
+      validation: yup.string().required('ایمیل بهشتی اجباری است'),
     },
     githubId: {
       validation: yup.string(),

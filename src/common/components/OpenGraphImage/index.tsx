@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, BoxProps } from '@mui/material';
-import Image from 'next/image';
 import type { OpenGraph } from 'common/types';
 
 interface Props extends BoxProps {
@@ -9,7 +8,7 @@ interface Props extends BoxProps {
 
 const OpenGraphImage = ({ openGraph, ...props }: Props) => (
   <Box {...props}>
-    <Image src={openGraph.image} alt={openGraph['image:alt']} layout="fixed" width={400} height={200} />
+    <img src={openGraph.image} alt={openGraph['image:alt']} width={400} height={200} />
   </Box>
 );
 

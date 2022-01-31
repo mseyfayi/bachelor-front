@@ -1,12 +1,14 @@
 import { Checkbox, Dialog, DialogContent, DialogTitle, FormControlLabel, Typography } from '@mui/material';
 import { Button, CategoriesSelectors, MarkDown, OpenGraphImage, TextField } from 'common/components';
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
 import { OpenGraph, Post, Tag } from 'common/types';
 import classes from './NewPostPresentation.module.scss';
 
 type Props = {
-  create: (post: Partial<Post>) => void;
+  open: boolean;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+  create: (post: Partial<Post>) => Promise<unknown>;
   isLoading: boolean;
   githubLink: string;
   setGithubLink: (val: string) => void;
@@ -16,6 +18,8 @@ type Props = {
 };
 
 const NewPostPresentation = ({
+  open,
+  setOpen,
   create,
   isLoading,
   githubLink,
@@ -24,7 +28,6 @@ const NewPostPresentation = ({
   openGraphLoading,
   openGraphError,
 }: Props) => {
-  const [open, setOpen] = useState(false);
   const [content, setContent] = useState('');
   const [isGithubProject, setGithubProject] = useState(false);
   const [tags, setTags] = useState<Array<Tag['id']>>([]);
@@ -33,7 +36,7 @@ const NewPostPresentation = ({
     <>
       <Dialog maxWidth="xl" fullWidth className={classes.dialogContainer} open={open} onClose={() => setOpen(false)}>
         <DialogTitle>پست جدید</DialogTitle>
-        <DialogContent sx={{ display: 'block' }}>
+        <DialogContent sx={{ display: 'block', borderBottom: 1, borderColor: '#ccc' }}>
           <FormControlLabel
             control={<Checkbox checked={isGithubProject} onChange={() => setGithubProject((prev) => !prev)} />}
             label="پروژه گیت‌هاب"
@@ -55,16 +58,32 @@ const NewPostPresentation = ({
               {!openGraphLoading && !openGraphError && openGraph && (
                 <OpenGraphImage
                   openGraph={openGraph}
-                  sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
                 />
               )}
             </>
           )}
           <MarkDown value={content} onChange={setContent} />
         </DialogContent>
-        <CategoriesSelectors tags={tags} setTags={setTags} />
+        <div className={classes.categorySelectors}>
+          <CategoriesSelectors tags={tags} setTags={setTags} />
+        </div>
         <footer className={classes.dialogAction}>
-          <Button onClick={() => create({ repoUrl: githubLink, content, tags })} isLoading={isLoading}>
+          <Button
+            onClick={() => {
+              create({ repoUrl: githubLink, content, tags }).finally(() => {
+                setContent('');
+                setGithubProject(false);
+                setTags([]);
+              });
+            }}
+            isLoading={isLoading}
+          >
             ذخیره
           </Button>
           <Button onClick={() => setOpen(false)}>انصراف</Button>

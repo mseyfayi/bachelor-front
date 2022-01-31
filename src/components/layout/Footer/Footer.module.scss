@@ -1,17 +1,19 @@
 @import "common/styles";
 
 .footer {
-  position: absolute;
-  right: 0;
-  left: 0;
-  bottom: 0;
   height: 30px;
   background-color: #eeeeeea0;
   @include center;
+  margin: 0 -10px;
 
   > p {
     font-size: 12px;
     color: #444;
     text-align: center;
+  }
+
+  > button {
+    position: absolute;
+    right: 0;
   }
 }
