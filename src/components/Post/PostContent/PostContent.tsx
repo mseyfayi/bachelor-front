@@ -11,6 +11,11 @@ type Props = {
 const PostContent = ({ post }: Props) => (
   <div className={classes.container}>
     <div className={classes.readme}>
+      {isGitPost(post) && (
+        <a href={post.repoUrl} target="_blank">
+          {post.repoUrl}
+        </a>
+      )}
       <MarkDown value={isGitPost(post) ? post.readmeContent : post.content} preview />
     </div>
     {post.comments?.map((comment) => (
