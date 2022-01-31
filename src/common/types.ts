@@ -53,6 +53,7 @@ export interface GitPost extends SimplePost {
   'image:alt': string;
   stars: string;
   forks: string;
+  readmeContent: string;
 }
 
 export type Post = GitPost | SimplePost;

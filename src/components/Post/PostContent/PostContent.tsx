@@ -1,4 +1,4 @@
-import { Post } from 'common/types';
+import { isGitPost, Post } from 'common/types';
 import { MarkDown } from 'common/components';
 import React from 'react';
 import PostComment from '../PostComment';
@@ -11,7 +11,7 @@ type Props = {
 const PostContent = ({ post }: Props) => (
   <div className={classes.container}>
     <div className={classes.readme}>
-      <MarkDown value={post.content} preview />
+      <MarkDown value={isGitPost(post) ? post.readmeContent : post.content} preview />
     </div>
     {post.comments?.map((comment) => (
       <PostComment comment={comment} key={comment.id} />
