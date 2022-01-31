@@ -7,13 +7,13 @@ import PostsPresentation from './PostsPresentation';
 
 const PostsContainer = () => {
   const [tags, setTags] = useState<Array<Tag['id']>>([]);
-  // todo should be infinite loop
-  const { data: list, isLoading } = useIQuery<Array<Post> | undefined>(
+  // todo page
+  const { data: { posts } = {}, isLoading } = useIQuery<{ posts: Array<Post> } | undefined>(
     ['posts', tags],
-    () => fetchApi<Array<Post>>(getGetPostsUrl(), getGetConfig()),
+    () => fetchApi<{ posts: Array<Post> }>(getGetPostsUrl(tags), getGetConfig()),
     'خطایی در هنگام گرفتن لیست رخ داده است',
   );
-  return <PostsPresentation {...{ tags, setTags, list, isLoading }} />;
+  return <PostsPresentation {...{ tags, setTags, posts, isLoading }} />;
 };
 
 export default PostsContainer;

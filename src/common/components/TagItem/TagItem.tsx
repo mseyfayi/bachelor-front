@@ -8,7 +8,7 @@ interface Props {
 }
 const TagItem = ({ tag }: Props) => (
   <div
-    style={{ background: `${tag.color}20` }}
+    style={{ background: `#${tag.color}20` }}
     className={classnames('d-flex flex-row align-items-center justify-content-center', classes.container)}
   >
     {tag.name}

@@ -13,7 +13,7 @@ type Props = {
 };
 
 const PostSideBar = ({ post, likeMutation }: Props) => (
-  <Box sx={{ color: '#555' }}>
+  <Box sx={{ color: '#555', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
     <Box
       sx={{
         mx: 1,
@@ -50,36 +50,46 @@ const PostSideBar = ({ post, likeMutation }: Props) => (
         <Typography m={1} textAlign="center" fontSize={13}>
           {post.repoDescription}
         </Typography>
-        <Box sx={{ width: 1, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
+        <Box
+          sx={{
+            width: 1,
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-around',
+          }}
+        >
           <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
             <StarIcon />
-            <Typography fontSize={13}>{post.starsCount}</Typography>
+            <Typography fontSize={13}>{post.stars}</Typography>
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
             <ForkRightIcon />
-            <Typography fontSize={13}>{post.forksCount}</Typography>
+            <Typography fontSize={13}>{post.forks}</Typography>
           </Box>
         </Box>
       </Box>
     )}
-    <Box
-      sx={{
-        mx: 1,
-        my: 3,
-        p: 1,
-        border: 1,
-        borderRadius: 1,
-        borderColor: '#ccc',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-      }}
-    >
-      {(post.tags as Array<Tag>).map((tag) => (
-        <TagItem key={tag?.id} tag={tag} />
-      ))}
-    </Box>
+    {post.tags?.length > 0 && (
+      <Box
+        sx={{
+          mx: 1,
+          my: 3,
+          p: 1,
+          border: 1,
+          borderRadius: 1,
+          borderColor: '#ccc',
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+        }}
+      >
+        {(post.tags as Array<Tag>).map((tag) => (
+          <TagItem key={tag?.id} tag={tag} />
+        ))}
+      </Box>
+    )}
     <Box
       sx={{
         mx: 1,
@@ -96,7 +106,7 @@ const PostSideBar = ({ post, likeMutation }: Props) => (
     >
       <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         <Like isLiked={post.isLiked} isLoading={likeMutation.isLoading} likePost={likeMutation.mutate} fontSize="small" />
-        <Typography fontSize={13}>{post.likesCount}</Typography>
+        <Typography fontSize={13}>{post.likes}</Typography>
       </Box>
       <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         <ChatBubbleOutlineIcon fontSize="small" />

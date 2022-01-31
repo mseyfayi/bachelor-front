@@ -58,6 +58,7 @@ export const fetchApi = async <TData>(url: string, config: Config): Promise<TDat
         snackActions.error('نشست کاربری شما به پایان رسید');
         setTimeout(() => window.location.assign('/auth/login'), 2000);
       }
+      // todo throw and notify error
     } else {
       return result;
     }

@@ -1,10 +1,12 @@
 @import "common/styles";
 
 .container {
+  height: 100%;
+
   .readme {
     padding: 30px;
     @include bordered;
     @include rounded(3px);
-    margin-bottom: 30px;
+    margin-bottom: 25px;
   }
 }
