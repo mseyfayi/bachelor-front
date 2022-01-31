@@ -6,6 +6,7 @@
   justify-content: space-between;
   padding: 60px 10px 0;
   min-height: 100vh;
+  background: #e0e0e0;
 
   > div {
     @include bordered(1px, #bbb);

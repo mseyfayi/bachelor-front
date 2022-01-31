@@ -15,7 +15,7 @@ interface Props {
 }
 
 const MarkDown = ({ value, onChange, preview }: Props) => (
-  <Box className={classes.md} sx={{ minHeight: 300 }}>
+  <Box className={classes.md} sx={{ minHeight: 300, maxWidth: '100%' }}>
     {preview ? (
       <Markdown>{value}</Markdown>
     ) : (

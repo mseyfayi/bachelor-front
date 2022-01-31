@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import Posts from 'components/Posts';
 import type { INextPage } from 'common/types';
-import AuthenticatedLayout from 'components/layout/AuthenticatedLayout';
+import React from 'react';
+import Layout from './Layout';
 
 const HomePage: INextPage = () => (
   <>
@@ -12,6 +13,6 @@ const HomePage: INextPage = () => (
   </>
 );
 
-HomePage.Layout = AuthenticatedLayout;
+HomePage.Layout = Layout;
 
 export default HomePage;

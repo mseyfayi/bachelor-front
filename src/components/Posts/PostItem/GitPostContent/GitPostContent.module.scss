@@ -1,7 +1,7 @@
 .container {
   padding: 5px;
   > img {
+    aspect-ratio: 2 / 1;
     width: 100%;
-    height: auto;
   }
 }
