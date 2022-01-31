@@ -9,7 +9,7 @@ const PostsContainer = () => {
   const [tags, setTags] = useState<Array<Tag['id']>>([]);
   // todo page
   const { data: { posts } = {}, isLoading } = useIQuery<{ posts: Array<Post> } | undefined>(
-    ['posts', tags],
+    ['posts', ...(tags.some((tag) => !!tag) ? tags : [])],
     () => fetchApi<{ posts: Array<Post> }>(getGetPostsUrl(tags), getGetConfig()),
     'خطایی در هنگام گرفتن لیست رخ داده است',
   );
